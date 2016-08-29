@@ -13,6 +13,20 @@
 		E31C3F8D1D6F567F00A8FCD2 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = E31C3F8B1D6F567F00A8FCD2 /* MainMenu.xib */; };
 		E31C3F981D6F568000A8FCD2 /* iTunesLyricTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31C3F971D6F568000A8FCD2 /* iTunesLyricTests.swift */; };
 		E31C3FA31D6F568000A8FCD2 /* iTunesLyricUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31C3FA21D6F568000A8FCD2 /* iTunesLyricUITests.swift */; };
+		E31C3FB21D6F57B900A8FCD2 /* StatusBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31C3FB11D6F57B900A8FCD2 /* StatusBarView.swift */; };
+		E31C3FBB1D70208500A8FCD2 /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31C3FBA1D70208500A8FCD2 /* Song.swift */; };
+		E31C3FBD1D7025AE00A8FCD2 /* LyricDisplayWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31C3FBC1D7025AE00A8FCD2 /* LyricDisplayWindow.swift */; };
+		E31C3FBF1D70261D00A8FCD2 /* InnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31C3FBE1D70261D00A8FCD2 /* InnerView.swift */; };
+		E31C3FC11D702C0600A8FCD2 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31C3FC01D702C0600A8FCD2 /* Util.swift */; };
+		E31C3FC31D70808600A8FCD2 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31C3FC21D70808600A8FCD2 /* Constant.swift */; };
+		E31C3FC51D7091EC00A8FCD2 /* iTunesLyricHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31C3FC41D7091EC00A8FCD2 /* iTunesLyricHelper.swift */; };
+		E31C3FCF1D70C3B200A8FCD2 /* SFLrcParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31C3FCD1D70C3B200A8FCD2 /* SFLrcParser.swift */; };
+		E31C3FD41D71AAF700A8FCD2 /* SearchQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31C3FD31D71AAF700A8FCD2 /* SearchQuery.swift */; };
+		E372F28F1D7440400048C0AB /* SFLyric.swift in Sources */ = {isa = PBXBuildFile; fileRef = E372F28E1D7440400048C0AB /* SFLyric.swift */; };
+		E372F2911D74408E0048C0AB /* SFLrc.swift in Sources */ = {isa = PBXBuildFile; fileRef = E372F2901D74408E0048C0AB /* SFLrc.swift */; };
+		E37EC1831D72098700F944F2 /* ScriptingBridge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3D4E3F81D720812001E4582 /* ScriptingBridge.framework */; };
+		E3C678611D72C4E50046110D /* iTunes.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3C678601D72C4E50046110D /* iTunes.swift */; };
+		E3C678621D730EFB0046110D /* SFJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31C3FC61D70B26B00A8FCD2 /* SFJSON.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +59,21 @@
 		E31C3F9E1D6F568000A8FCD2 /* iTunesLyricUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iTunesLyricUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E31C3FA21D6F568000A8FCD2 /* iTunesLyricUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iTunesLyricUITests.swift; sourceTree = "<group>"; };
 		E31C3FA41D6F568000A8FCD2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E31C3FB11D6F57B900A8FCD2 /* StatusBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusBarView.swift; sourceTree = "<group>"; };
+		E31C3FB51D6F649200A8FCD2 /* iTunesLyric-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iTunesLyric-Bridging-Header.h"; sourceTree = "<group>"; };
+		E31C3FBA1D70208500A8FCD2 /* Song.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
+		E31C3FBC1D7025AE00A8FCD2 /* LyricDisplayWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LyricDisplayWindow.swift; sourceTree = "<group>"; };
+		E31C3FBE1D70261D00A8FCD2 /* InnerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InnerView.swift; sourceTree = "<group>"; };
+		E31C3FC01D702C0600A8FCD2 /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
+		E31C3FC21D70808600A8FCD2 /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		E31C3FC41D7091EC00A8FCD2 /* iTunesLyricHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iTunesLyricHelper.swift; sourceTree = "<group>"; };
+		E31C3FC61D70B26B00A8FCD2 /* SFJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SFJSON.swift; path = iTunesLyric/Utility/SFJSON.swift; sourceTree = SOURCE_ROOT; };
+		E31C3FCD1D70C3B200A8FCD2 /* SFLrcParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SFLrcParser.swift; sourceTree = "<group>"; };
+		E31C3FD31D71AAF700A8FCD2 /* SearchQuery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchQuery.swift; sourceTree = "<group>"; };
+		E372F28E1D7440400048C0AB /* SFLyric.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SFLyric.swift; sourceTree = "<group>"; };
+		E372F2901D74408E0048C0AB /* SFLrc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SFLrc.swift; sourceTree = "<group>"; };
+		E3C678601D72C4E50046110D /* iTunes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iTunes.swift; sourceTree = "<group>"; };
+		E3D4E3F81D720812001E4582 /* ScriptingBridge.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ScriptingBridge.framework; path = System/Library/Frameworks/ScriptingBridge.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +81,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E37EC1831D72098700F944F2 /* ScriptingBridge.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,6 +109,7 @@
 				E31C3F961D6F568000A8FCD2 /* iTunesLyricTests */,
 				E31C3FA11D6F568000A8FCD2 /* iTunesLyricUITests */,
 				E31C3F821D6F567F00A8FCD2 /* Products */,
+				E3D4E3F71D720812001E4582 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -96,10 +127,16 @@
 			isa = PBXGroup;
 			children = (
 				E31C3F841D6F567F00A8FCD2 /* AppDelegate.swift */,
+				E31C3FD11D71A98400A8FCD2 /* Model */,
+				E31C3FD21D71AA0300A8FCD2 /* Utility */,
+				E31C3FCC1D70C39F00A8FCD2 /* SFLrcParser */,
+				E31C3FB81D6F64C400A8FCD2 /* iTunes */,
+				E31C3FB01D6F572100A8FCD2 /* UI */,
 				E31C3F891D6F567F00A8FCD2 /* Assets.xcassets */,
 				E31C3F8B1D6F567F00A8FCD2 /* MainMenu.xib */,
 				E31C3F8E1D6F567F00A8FCD2 /* Info.plist */,
 				E31C3F861D6F567F00A8FCD2 /* iTunesLyric.xcdatamodeld */,
+				E31C3FB51D6F649200A8FCD2 /* iTunesLyric-Bridging-Header.h */,
 			);
 			path = iTunesLyric;
 			sourceTree = "<group>";
@@ -120,6 +157,62 @@
 				E31C3FA41D6F568000A8FCD2 /* Info.plist */,
 			);
 			path = iTunesLyricUITests;
+			sourceTree = "<group>";
+		};
+		E31C3FB01D6F572100A8FCD2 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				E31C3FB11D6F57B900A8FCD2 /* StatusBarView.swift */,
+				E31C3FBC1D7025AE00A8FCD2 /* LyricDisplayWindow.swift */,
+				E31C3FBE1D70261D00A8FCD2 /* InnerView.swift */,
+				E31C3FC21D70808600A8FCD2 /* Constant.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		E31C3FB81D6F64C400A8FCD2 /* iTunes */ = {
+			isa = PBXGroup;
+			children = (
+				E3C678601D72C4E50046110D /* iTunes.swift */,
+				E31C3FC41D7091EC00A8FCD2 /* iTunesLyricHelper.swift */,
+			);
+			path = iTunes;
+			sourceTree = "<group>";
+		};
+		E31C3FCC1D70C39F00A8FCD2 /* SFLrcParser */ = {
+			isa = PBXGroup;
+			children = (
+				E31C3FCD1D70C3B200A8FCD2 /* SFLrcParser.swift */,
+				E372F28E1D7440400048C0AB /* SFLyric.swift */,
+				E372F2901D74408E0048C0AB /* SFLrc.swift */,
+			);
+			path = SFLrcParser;
+			sourceTree = "<group>";
+		};
+		E31C3FD11D71A98400A8FCD2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E31C3FD31D71AAF700A8FCD2 /* SearchQuery.swift */,
+				E31C3FBA1D70208500A8FCD2 /* Song.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E31C3FD21D71AA0300A8FCD2 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				E31C3FC01D702C0600A8FCD2 /* Util.swift */,
+				E31C3FC61D70B26B00A8FCD2 /* SFJSON.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		E3D4E3F71D720812001E4582 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E3D4E3F81D720812001E4582 /* ScriptingBridge.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -191,7 +284,13 @@
 					E31C3F801D6F567F00A8FCD2 = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = R8LT9M7XB2;
+						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 0;
+							};
+						};
 					};
 					E31C3F921D6F568000A8FCD2 = {
 						CreatedOnToolsVersion = 8.0;
@@ -258,8 +357,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E31C3FBD1D7025AE00A8FCD2 /* LyricDisplayWindow.swift in Sources */,
+				E3C678611D72C4E50046110D /* iTunes.swift in Sources */,
+				E31C3FC51D7091EC00A8FCD2 /* iTunesLyricHelper.swift in Sources */,
+				E31C3FB21D6F57B900A8FCD2 /* StatusBarView.swift in Sources */,
+				E372F2911D74408E0048C0AB /* SFLrc.swift in Sources */,
+				E31C3FC31D70808600A8FCD2 /* Constant.swift in Sources */,
+				E31C3FD41D71AAF700A8FCD2 /* SearchQuery.swift in Sources */,
 				E31C3F851D6F567F00A8FCD2 /* AppDelegate.swift in Sources */,
+				E31C3FC11D702C0600A8FCD2 /* Util.swift in Sources */,
+				E3C678621D730EFB0046110D /* SFJSON.swift in Sources */,
+				E372F28F1D7440400048C0AB /* SFLyric.swift in Sources */,
+				E31C3FCF1D70C3B200A8FCD2 /* SFLrcParser.swift in Sources */,
 				E31C3F881D6F567F00A8FCD2 /* iTunesLyric.xcdatamodeld in Sources */,
+				E31C3FBF1D70261D00A8FCD2 /* InnerView.swift in Sources */,
+				E31C3FBB1D70208500A8FCD2 /* Song.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -400,12 +512,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = "";
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = R8LT9M7XB2;
 				INFOPLIST_FILE = iTunesLyric/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Putotyra.iTunesLyric;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "iTunesLyric/iTunesLyric-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -414,12 +531,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = "";
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = R8LT9M7XB2;
 				INFOPLIST_FILE = iTunesLyric/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Putotyra.iTunesLyric;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "iTunesLyric/iTunesLyric-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
@@ -505,6 +626,7 @@
 				E31C3FA91D6F568000A8FCD2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E31C3FAA1D6F568000A8FCD2 /* Build configuration list for PBXNativeTarget "iTunesLyricTests" */ = {
 			isa = XCConfigurationList;
@@ -513,6 +635,7 @@
 				E31C3FAC1D6F568000A8FCD2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E31C3FAD1D6F568000A8FCD2 /* Build configuration list for PBXNativeTarget "iTunesLyricUITests" */ = {
 			isa = XCConfigurationList;
@@ -521,6 +644,7 @@
 				E31C3FAF1D6F568000A8FCD2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

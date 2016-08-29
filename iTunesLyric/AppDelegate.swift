@@ -7,15 +7,67 @@
 //
 
 import Cocoa
+import ScriptingBridge
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
     @IBOutlet weak var window: NSWindow!
+    @IBOutlet weak var prefWindow: NSWindow!
 
-
+    var lyricWindow: LyricDisplayWindow!
+    var barView: StatusBarView!
+    var itunes: iTunesApplication!
+    var timer: Timer?
+    var currentLrc: SFLrc?
+    var song: Song?
+    
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
+        
+        guard let it = SBApplication(bundleIdentifier: "com.apple.iTunes") as? iTunesApplication else {
+            showTerminateAlert()
+            return
+        }
+        
+        itunes = it
+        
+        if !itunes.isRunning {
+            itunes.activate()
+        }
+        sleep(1)
+        
+        createLyricWindow()
+        registerNotification()
+        
+        // init status bar icon
+        barView = StatusBarView(frame: NSRect(x: 0, y: 0, width: 24, height: 18))
+        
+        // set preference window
+        prefWindow.appearance = NSAppearance(named: NSAppearanceNameVibrantDark)
+        
+//        [self.updater checkForUpdatesInBackground];
+
+        // init itunes playing state
+        if itunes.playerState! == iTunesEPlS.Playing {
+            initTimer()
+            self.song = currentPlayingSong()
+            if song != nil {
+                print("Song Not Nil")
+                lyricWindow.lyric = "\(song!.filename)"
+                iTunesLyricHelper.shared.smartFetchLyric(with: song!, completion: { (lrc) in
+//                    self.iTunesLyricFetchFinished(song: song!)
+                    dump(lrc)
+                })
+//                iTunesLyricHelper.shared.fetchLyric(with: song!, completion: { (_) in
+//                    
+//                })
+            } else {
+                print("Song Nil")
+                lyricWindow.lyric = "没有检测到歌曲信息"
+            }
+        }
+
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
@@ -170,3 +222,263 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
 }
 
+// MARK: - Alert
+extension AppDelegate {
+    
+    func showTerminateAlert() {
+        iTunesErrorAlert.runModal()
+    }
+    
+    func terminate() {
+        NSApplication.shared().terminate(nil)
+    }
+    
+    var iTunesErrorAlert: NSAlert {
+        let alert = NSAlert()
+        alert.informativeText = "No iTunes."
+        let button = alert.addButton(withTitle: "OK")
+        button.target = self
+        button.action = #selector(AppDelegate.terminate)
+        return alert
+    }
+}
+
+
+extension AppDelegate {
+    func createLyricWindow() {
+        // create lyric window
+        print("creating")
+        lyricWindow = LyricDisplayWindow(contentRect: NSRect.init(x: 100, y: 100, width: (NSScreen.main()?.frame.width ?? 1080 - 2 * 100) / 2, height: 80), styleMask: .borderless, backing: NSBackingStoreType.buffered, defer: false)
+        print("created")
+        lyricWindow.lyric = "Init"
+        lyricWindow.makeKeyAndOrderFront(nil)
+    }
+    
+    func registerNotification() {
+        DistributedNotificationCenter.default().addObserver(self, selector: #selector(AppDelegate.updateTrackInfo(notification:)), name: NSNotification.Name(rawValue: "com.apple.iTunes.playerInfo"), object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(AppDelegate.preference(notification:)), name: NSNotification.Name.init("kNotification_ShowWindow"), object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(AppDelegate.hideLyricPanel(notification:)), name: NSNotification.Name.init("kNotification_HideLyric"), object: nil)
+        
+//        [dnc addObserver:self selector:@selector(updateTrackInfo:) name: @"com.apple.iTunes.playerInfo" object:nil];
+    }
+    
+    func initTimer() {
+        if timer == nil {
+            timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(AppDelegate.fetchProgress(timer:)), userInfo: nil, repeats: true)
+        }
+    }
+}
+
+extension AppDelegate {
+    // MARK: - iTunes Song Playing
+    // get current playing song
+    func currentPlayingSong() -> Song? {
+        guard let track = itunes?.currentTrack, track.name?.characters.count != 0 else {
+            print("No Track Info")
+            return nil
+        }
+        print("Got Track Info")
+        return Song(title: track.name!, artist: track.artist!, album: track.album!)
+    }
+
+    func updateTrackInfo(notification: NSNotification) {
+        guard let state = notification.userInfo?["Player State"] as? String else {
+            return
+        }
+        if state == "Paused" {
+            timer?.invalidate()
+            timer = nil
+        }else if state == "Playing" {
+            initTimer()
+            if song != currentPlayingSong() {
+                song = currentPlayingSong()
+                if song != nil {
+                    lyricWindow.lyric = "\(song!.filename)"
+                }else {
+                    lyricWindow.lyric = "没有检测到歌曲信息"
+                }
+                iTunesLyricHelper.shared.smartFetchLyric(with: song!, completion: {_ in 
+//                    self.iTunesLyricFetchFinished(song: $0!)
+                })
+                
+                if !lyricWindow.isVisible {
+                    lyricWindow.lyric = ""
+                    lyricWindow.makeKeyAndOrderFront(nil)
+                }
+            }
+
+        }
+        
+    }
+    
+    func changeSong() {
+        timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(AppDelegate.fetchProgress(timer:)), userInfo: nil, repeats: true)
+        self.song = currentPlayingSong()
+        if song != nil {
+            lyricWindow.lyric = "\(song!.filename)"
+            //                iTunesLyricHelper.shared.smartFetchLyric(with: song!, completion: { (song) in
+            //                    self.iTunesLyricFetchFinished(song: song!)
+            //                })
+            iTunesLyricHelper.shared.fetchLyric(with: song!, completion: { (_) in
+                
+            })
+        } else {
+            lyricWindow.lyric = "没有检测到歌曲信息"
+        }
+    }
+    
+    // lyric fetch finished notficaiton
+//    func iTunesLyricFetchFinished(song: Song) {
+//    if (song.lyrics) {
+//    self.song.lyrics = song.lyrics;
+//    self.song.lyricId = song.lyricId;
+//    
+//    if (![song.name isEqualToString: self.song.name]) {
+//    self.song.name = song.name;
+//    self.song.artist = song.artist;
+//    [[iTunesLyricHelper shareHelper] saveSongLyricToLocal: self.song];
+//    }
+//    }
+//    
+//    if (song.lyrics) {
+//    [self.lyricWindow setLyric: [NSString stringWithFormat: @"%@ - %@", self.song.name, self.song.artist]];
+//    [self analyzeLyric: song.lyrics];
+//    } else {
+//    [self.lyricDict removeAllObjects];
+//    [self.lyricWindow setLyric: @"没有检测到歌词信息"];
+//    }
+//    }
+    
+    /*
+     Search Delegate
+    func searchLyricWillBegin() {
+        lyricWindow.lyric = "正在导入中..."
+    }
+    
+    func searchLyricDidImportLyricToSong(song: Song?) {
+        if song == nil {
+            lyricWindow.lyric = "导入失败"
+        } else {
+            iTunesLyricFetchFinished(song: song!)
+        }
+    }
+    */
+    
+    //TODO: rewrite
+    // song playing timer call back
+    func fetchProgress(timer: Timer) {
+//        let playerPosition = itunes?.playerPosition
+//        print(playerPosition)
+//    NSString *time = [self secs2String: playerPosition];
+//    NSString *lyricStr = self.lyricDict[time];
+//    if (lyricStr.length) {
+//    [self.lyricWindow setLyric: lyricStr];
+//    }
+    }
+    
+    //FIXME
+    //TODO: remove
+    // util to convert sec to string
+//    - (NSString *)secs2String:(NSInteger)time
+//    {
+//    return [NSString stringWithFormat:@"%.2ld:%.2ld",time / 60,time % 60];
+//    }
+    
+    // analy lyric
+    //TODO: rewrite
+    func analyzeLyric(lyric: String) {
+//        if lyricDict == nil {
+//            lyricDict = NSMutableDictionary()
+//        }
+//        lyricDict?.removeAllObjects()
+//        
+//    if (self.lyricDict == nil) {
+//    self.lyricDict = [NSMutableDictionary dictionary];
+//    }
+//    [self.lyricDict removeAllObjects];
+//    
+//    NSArray *lyricsArray = [lyrics componentsSeparatedByString: @"\n"];
+//    for (NSString *lyric in lyricsArray) {
+//    if (lyric.length == 0) continue;
+//    NSArray *tmpArray = [lyric componentsSeparatedByString: @"]"];
+//    if ([tmpArray.firstObject length] < 1) continue;
+//    NSString *timeStr = [[tmpArray firstObject] substringFromIndex: 1];
+//    NSArray * timeArray = [timeStr componentsSeparatedByString:@"."];
+//    NSString * lyricTimeStr = timeArray.firstObject;
+//    NSString * lyricStr = tmpArray.lastObject;
+//    
+//    if (lyricTimeStr.length && lyricStr.length) {
+//    [self.lyricDict setValue: lyricStr forKey: lyricTimeStr];
+//    }
+//    }
+    }
+
+}
+
+// MARK: - Preference
+extension AppDelegate {
+    /*
+    - (IBAction)colorChanged:(id)sender
+    {
+    [[NSNotificationCenter defaultCenter] postNotificationName: kNotificaiton_ColorChanged object: nil];
+    }
+    
+    - (IBAction)fontChanged:(id)sender
+    {
+    [[NSNotificationCenter defaultCenter] postNotificationName: kNotification_FontChanged object: nil];
+    }
+    
+    - (IBAction)startupChanged:(id)sender
+    {
+    
+    }
+ */
+    
+    func preference(notification: Notification) {
+        guard let tag = notification.object as? StatusBarTag else {
+            return
+        }
+        switch tag {
+        case .preference:
+            NSApp.activate(ignoringOtherApps: true)
+            prefWindow.makeKeyAndOrderFront(nil)
+        case .searchLyric:
+            NSApp.activate(ignoringOtherApps: true)
+            /*
+ if (self.searchViewController == nil) {
+ self.searchViewController = [[SearchLyricWindowController alloc] initWithWindowNibName: @"SearchLyricWindowController" Song: self.song];
+ self.searchViewController.searchLyricDelegate = self;
+ [self.searchViewController.window makeKeyAndOrderFront: nil];
+ } else {
+ self.searchViewController.song = self.song;
+ [self.searchViewController.window makeKeyAndOrderFront: nil];
+ }
+ */
+        case .feedback:
+            NSWorkspace.shared().open(URL(string: "")!)
+        case .about:
+            NSApp.orderFrontStandardAboutPanel(nil)
+        case .checkUpdate:
+            break
+        default:
+            break
+        }
+    
+    }
+    
+    func hideLyricPanel(notification: Notification) {
+        guard let needHide = notification.object as? Bool else {
+            return
+        }
+        if needHide {
+            lyricWindow.orderOut(nil)
+        } else {
+            let lyric = lyricWindow.lyric
+            lyricWindow.lyric = ""
+            lyricWindow.makeKeyAndOrderFront(nil)
+            lyricWindow.lyric = lyric
+        }
+    }
+}

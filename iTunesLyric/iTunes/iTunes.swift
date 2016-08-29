@@ -11,6 +11,7 @@ import ScriptingBridge
 
 @objc public protocol SBApplicationProtocol: SBObjectProtocol {
     @objc func activate()
+    @objc var isRunning: Bool { get }
     @objc var delegate: SBApplicationDelegate? { get set }
 }
 
