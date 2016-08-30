@@ -8,11 +8,18 @@
 
 import Cocoa
 
-class LyricDisplayWindow: NSPanel {
-    var lyric: String = "" {
-        didSet {
-            innerView.frame = rectOf(text: lyric, font: innerView.font)
-            innerView.text = lyric
+class LyricDisplayWindow: NSWindow {
+    var lyric: String {
+        set {
+            if newValue == innerView.text {
+                return
+            } else {
+                innerView.frame = rectOf(text: newValue, font: innerView.font)
+                innerView.text = newValue
+            }
+        }
+        get {
+            return innerView.text
         }
     }
     

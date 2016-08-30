@@ -57,11 +57,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 lyricWindow.lyric = "\(song!.filename)"
                 iTunesLyricHelper.shared.smartFetchLyric(with: song!, completion: { (lrc) in
 //                    self.iTunesLyricFetchFinished(song: song!)
-                    dump(lrc)
+                    self.currentLrc = lrc
                 })
-//                iTunesLyricHelper.shared.fetchLyric(with: song!, completion: { (_) in
-//                    
-//                })
             } else {
                 print("Song Nil")
                 lyricWindow.lyric = "没有检测到歌曲信息"
@@ -299,8 +296,9 @@ extension AppDelegate {
                 }else {
                     lyricWindow.lyric = "没有检测到歌曲信息"
                 }
-                iTunesLyricHelper.shared.smartFetchLyric(with: song!, completion: {_ in 
+                iTunesLyricHelper.shared.smartFetchLyric(with: song!, completion: { lrc in
 //                    self.iTunesLyricFetchFinished(song: $0!)
+                    self.currentLrc = lrc
                 })
                 
                 if !lyricWindow.isVisible {
@@ -316,13 +314,12 @@ extension AppDelegate {
     func changeSong() {
         timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(AppDelegate.fetchProgress(timer:)), userInfo: nil, repeats: true)
         self.song = currentPlayingSong()
+        self.currentLrc = nil
         if song != nil {
             lyricWindow.lyric = "\(song!.filename)"
-            //                iTunesLyricHelper.shared.smartFetchLyric(with: song!, completion: { (song) in
-            //                    self.iTunesLyricFetchFinished(song: song!)
-            //                })
-            iTunesLyricHelper.shared.fetchLyric(with: song!, completion: { (_) in
-                
+            iTunesLyricHelper.shared.smartFetchLyric(with: song!, completion: { (lrc) in
+                //                    self.iTunesLyricFetchFinished(song: song!)
+                self.currentLrc = lrc
             })
         } else {
             lyricWindow.lyric = "没有检测到歌曲信息"
@@ -369,7 +366,10 @@ extension AppDelegate {
     //TODO: rewrite
     // song playing timer call back
     func fetchProgress(timer: Timer) {
-//        let playerPosition = itunes?.playerPosition
+        guard let playerPosition = itunes?.playerPosition else {
+            return
+        }
+        lyricWindow.lyric = self.currentLrc?.currentLyric(byTime: Int(playerPosition * 1000)) ?? ""
 //        print(playerPosition)
 //    NSString *time = [self secs2String: playerPosition];
 //    NSString *lyricStr = self.lyricDict[time];

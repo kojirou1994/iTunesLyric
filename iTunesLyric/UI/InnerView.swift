@@ -11,6 +11,9 @@ import Cocoa
 class InnerView: NSView {
     
     var text: String = "" {
+        willSet {
+            
+        }
         didSet {
             needsDisplay = true
         }
@@ -51,7 +54,7 @@ class InnerView: NSView {
             let path = createRoundRectPath(in: bounds, radius: 5)
             
             ctx?.saveGState()
-            ctx?.setFillColor(red: 0, green: 0, blue: 0, alpha: 1)
+            ctx?.setFillColor(red: 0, green: 0, blue: 1, alpha: 1)
             ctx?.addPath(path)
             ctx?.fillPath()
             ctx?.restoreGState()

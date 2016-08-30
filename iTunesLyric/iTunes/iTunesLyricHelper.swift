@@ -31,9 +31,9 @@ class iTunesLyricHelper {
 //            return
         }
         var request = URLRequest(url: URL(string: FetchSongIDURL)!)
-        request.setValue("Cookie", forHTTPHeaderField: ENET_COOKIE)
-        request.setValue("User-Agent", forHTTPHeaderField: ENET_UA)
-        
+        request.setValue(ENET_COOKIE, forHTTPHeaderField: "Cookie")
+        request.setValue(ENET_UA, forHTTPHeaderField: "User-Agent")
+        request.httpMethod = "POST"
         request.httpBody = SearchQuery(key: song.title).httpBody
         
 //        requestsDict[key] = request
@@ -58,6 +58,7 @@ class iTunesLyricHelper {
             })?["name"].string ?? "", album: target["album"]["name"].stringValue, neteaseId: target["id"].intValue)!
             */
             song.neteaseId = target["id"].intValue
+            print("Got Netease MusicID \(song.neteaseId)")
             self.fetchLyric(with: song, completion: completion)
             
             //FIXME
@@ -169,8 +170,7 @@ class iTunesLyricHelper {
      */
     func fetchLyric(with song: Song, completion: FetchLyricCompletion) {
         print("Fetching Lyric")
-//        var request = URLRequest(url: URL(string: "\(FetchSongLyricURL)&id=\(song.lyricId)")!)
-        var request = URLRequest(url: URL(string: "\(FetchSongLyricURL)&id=93920")!)
+        var request = URLRequest(url: URL(string: "\(FetchSongLyricURL)&id=\(song.neteaseId)")!)
         request.setValue("Cookie", forHTTPHeaderField: ENET_COOKIE)
         request.setValue("User-Agent", forHTTPHeaderField: ENET_UA)
 
