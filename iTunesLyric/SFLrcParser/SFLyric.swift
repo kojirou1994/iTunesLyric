@@ -20,12 +20,20 @@ public struct SFLyric {
         let time = time.substring(from: time.index(time.startIndex, offsetBy: 1))
         guard let minute = Int(time.substring(to: time.index(time.startIndex, offsetBy: 2))),
             let second = Int(time[time.index(time.startIndex, offsetBy: 3)..<time.index(time.startIndex, offsetBy: 5)]),
-            let mileSecond = Int(time[time.index(time.startIndex, offsetBy: 6)..<time.index(time.startIndex, offsetBy: 8)]) else {
-            throw SFLyricError.timeSyntaxError
+            let mileSecond = Int(time[time.index(time.startIndex, offsetBy: 6)..<time.endIndex]) else {
+				throw SFLyricError.timeSyntaxError
         }
-        self.time = (minute * 60 + second) * 1000 + mileSecond * 10
+		if mileSecond / 10 == 0 {
+			self.time = (minute * 60 + second) * 1000 + mileSecond * 100
+		}
+		else if mileSecond / 100 == 0 {
+			self.time = (minute * 60 + second) * 1000 + mileSecond * 10
+		}
+		else {
+			self.time = (minute * 60 + second) * 1000 + mileSecond
+		}
         self.text = text
-    }
+	}
 }
 
 extension SFLyric: Comparable {

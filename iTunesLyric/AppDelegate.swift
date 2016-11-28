@@ -19,7 +19,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var barView: StatusBarView!
     var itunes: iTunesApplication!
     var timer: Timer?
-    var currentLrc: SFLrc?
+	var currentLrc: SFLrc? {
+		didSet {
+//			print(currentLrc)
+		}
+	}
     var song: Song?
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
@@ -57,7 +61,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 lyricWindow.lyric = "\(song!.filename)"
                 iTunesLyricHelper.shared.smartFetchLyric(with: song!, completion: { (lrc) in
 //                    self.iTunesLyricFetchFinished(song: song!)
-                    self.currentLrc = lrc
+					self.currentLrc = lrc
+					print(self.itunes.currentTrack?.lyrics)
+					if lrc != nil && self.itunes.currentTrack?.lyrics == nil || self.itunes.currentTrack?.lyrics == "" {
+						self.itunes.currentTrack?.setLyrics?(lrc!.lyric)
+					}
                 })
             } else {
                 print("Song Nil")
@@ -305,7 +313,8 @@ extension AppDelegate {
                 iTunesLyricHelper.shared.smartFetchLyric(with: song!, completion: { lrc in
 //                    self.iTunesLyricFetchFinished(song: $0!)
                     self.currentLrc = lrc
-					if lrc != nil && self.itunes.currentTrack?.lyrics == nil {
+					print(self.itunes.currentTrack?.lyrics)
+					if lrc != nil && self.itunes.currentTrack?.lyrics == nil || self.itunes.currentTrack?.lyrics == "" {
 						self.itunes.currentTrack?.setLyrics?(lrc!.lyric)
 					}
                 })
@@ -328,7 +337,11 @@ extension AppDelegate {
             lyricWindow.lyric = "\(song!.filename)"
             iTunesLyricHelper.shared.smartFetchLyric(with: song!, completion: { (lrc) in
                 //                    self.iTunesLyricFetchFinished(song: song!)
-                self.currentLrc = lrc
+				self.currentLrc = lrc
+				print(self.itunes.currentTrack?.lyrics)
+				if lrc != nil && self.itunes.currentTrack?.lyrics == nil || self.itunes.currentTrack?.lyrics == "" {
+					self.itunes.currentTrack?.setLyrics?(lrc!.lyric)
+				}
             })
         } else {
             lyricWindow.lyric = "没有检测到歌曲信息"

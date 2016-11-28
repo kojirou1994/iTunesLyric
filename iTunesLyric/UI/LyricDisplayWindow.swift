@@ -9,13 +9,16 @@
 import Cocoa
 
 class LyricDisplayWindow: NSWindow {
+	
     var lyric: String {
         set {
             if newValue == innerView.text {
                 return
             } else {
-                innerView.frame = rectOf(text: newValue, font: innerView.font)
+				let newFrame = rectOf(text: newValue, font: innerView.font)
+                innerView.frame = newFrame
                 innerView.text = newValue
+				setFrame(NSRect.init(origin: self.frame.origin, size: newFrame.size), display: true)
             }
         }
         get {

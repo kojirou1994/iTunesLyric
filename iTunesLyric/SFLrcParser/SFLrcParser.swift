@@ -22,7 +22,7 @@ public struct SFLrcParser {
             let separateIndex = line.range(of: "]")!.lowerBound
             let tag = line.substring(to: separateIndex)
             let text = line.substring(from: line.index(separateIndex, offsetBy: 1))
-            if tag.characters.count == 9 || tag.characters.count == 10 && tag[tag.index(tag.startIndex, offsetBy: 3)] == ":" && tag[tag.index(tag.startIndex, offsetBy: 6)] == "." {
+            if tag.characters.count == 8 || tag.characters.count == 9 || tag.characters.count == 10 && tag[tag.index(tag.startIndex, offsetBy: 3)] == ":" && tag[tag.index(tag.startIndex, offsetBy: 6)] == "." {
                 do {
                     let lyric = try SFLyric(time: tag, text: text)
                     lyrics.append(lyric)
