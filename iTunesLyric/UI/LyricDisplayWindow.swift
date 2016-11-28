@@ -30,7 +30,7 @@ class LyricDisplayWindow: NSWindow {
         super.init(contentRect: contentRect, styleMask: style, backing: bufferingType, defer: flag)
         self.contentView = innerView
         self.level = Int(CGWindowLevelKey.statusWindow.rawValue)
-        self.backgroundColor = NSColor.white
+        self.backgroundColor = NSColor.clear
         
         self.isOpaque = false
         self.makeFirstResponder(innerView)

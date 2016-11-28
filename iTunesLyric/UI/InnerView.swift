@@ -18,7 +18,9 @@ class InnerView: NSView {
             needsDisplay = true
         }
     }
+    
     var color: NSColor = .red
+    
     var font: NSFont = NSFont.boldSystemFont(ofSize: (UserDefaults.standard.object(forKey: "lyricFont") as? CGFloat) ?? 35) {
         didSet {
             needsDisplay = true
@@ -41,6 +43,7 @@ class InnerView: NSView {
         if let data = UserDefaults.standard.object(forKey: "lyricColor") as? Data, let color = NSUnarchiver.unarchiveObject(with: data) as? NSColor {
             self.color = color
         }
+        
     }
     
     required init?(coder: NSCoder) {
@@ -50,16 +53,12 @@ class InnerView: NSView {
     override func draw(_ dirtyRect: NSRect) {
 //        super.draw(dirtyRect)
         if mouseIn {
-            let ctx = NSGraphicsContext.current()?.cgContext
-            let path = createRoundRectPath(in: bounds, radius: 5)
-            
-            ctx?.saveGState()
-            ctx?.setFillColor(red: 0, green: 0, blue: 1, alpha: 1)
-            ctx?.addPath(path)
-            ctx?.fillPath()
-            ctx?.restoreGState()
+            NSColor(calibratedRed: 0, green: 0, blue: 0.4, alpha: 0.5).setFill()
+            let path = NSBezierPath(roundedRect: bounds, xRadius: 10, yRadius: 10)
+            path.fill()
         }
         (text as NSString).draw(in: NSRect.init(x: leftMargin, y: topMargin, width: bounds.width - 2 * leftMargin, height: bounds.height - 2 * topMargin), withAttributes: [NSFontAttributeName: font, NSForegroundColorAttributeName: color])
+//        Swift.print(self.frame)
         // Drawing code here.
     }
     
@@ -68,11 +67,13 @@ class InnerView: NSView {
     }
     
     override func mouseEntered(with event: NSEvent) {
+        Swift.print("mouseEntered")
         mouseIn = true
         super.mouseEntered(with: event)
     }
     
     override func mouseExited(with event: NSEvent) {
+        Swift.print("mouseExited")
         mouseIn = false
         super.mouseExited(with: event)
     }

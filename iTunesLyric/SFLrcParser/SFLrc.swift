@@ -18,4 +18,9 @@ public struct SFLrc {
         }
         return lyrics[laterLyric - 1].text
     }
+	
+	public var lyric: String {
+		return lyrics.map({ $0.text }).joined(separator: "\n")
+	}
+	
 }

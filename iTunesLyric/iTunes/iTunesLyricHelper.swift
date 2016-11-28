@@ -21,7 +21,7 @@ class iTunesLyricHelper {
     /**
      根据iTunes歌曲信息智能获取歌词
      */
-    func smartFetchLyric(with song: Song, completion: FetchLyricCompletion) {
+    func smartFetchLyric(with song: Song, completion: @escaping FetchLyricCompletion) {
         if readSongLyricFromLocal(song: song) {
 //            completion(song)
             return
@@ -48,19 +48,24 @@ class iTunesLyricHelper {
             guard let obj = SFJSON(jsonString: bodyString), let songs = obj["result"]["songs"].arrayObject else {
                 return
             }
-            guard let target = songs.first(where: { $0["artists"].arrayObject?.first?["name"].string == song.artist }) else {
-                return
-            }
-            print("Smart Response OK")
-            /*
-            let song = Song(title: target["name"].stringValue, artist: target["artists"].arrayObject?.first(where: {
-                $0["name"].string != nil
-            })?["name"].string ?? "", album: target["album"]["name"].stringValue, neteaseId: target["id"].intValue)!
-            */
-            song.neteaseId = target["id"].intValue
-            print("Got Netease MusicID \(song.neteaseId)")
-            self.fetchLyric(with: song, completion: completion)
-            
+            if let target = songs.first(where: { self.validateArtist(l: $0["artists"].arrayObject?.first?["name"].string, r: song.artist) }) {
+				print("Smart Response OK")
+				/*
+				let song = Song(title: target["name"].stringValue, artist: target["artists"].arrayObject?.first(where: {
+				$0["name"].string != nil
+				})?["name"].string ?? "", album: target["album"]["name"].stringValue, neteaseId: target["id"].intValue)!
+				*/
+				song.neteaseId = target["id"].intValue
+				print("Got Netease MusicID \(song.neteaseId)")
+				self.fetchLyric(with: song, completion: completion)
+			} else {
+				let target = songs[0]
+				song.neteaseId = target["id"].intValue
+				print("Got Netease MusicID \(song.neteaseId)")
+				self.fetchLyric(with: song, completion: completion)
+			}
+			
+			
             //FIXME
 //            song.lyricId = target.lyricId
             
@@ -168,7 +173,7 @@ class iTunesLyricHelper {
     /**
      根据歌曲（含有歌词id）获取歌词
      */
-    func fetchLyric(with song: Song, completion: FetchLyricCompletion) {
+    func fetchLyric(with song: Song, completion: @escaping FetchLyricCompletion) {
         print("Fetching Lyric")
         var request = URLRequest(url: URL(string: "\(FetchSongLyricURL)&id=\(song.neteaseId)")!)
         request.setValue("Cookie", forHTTPHeaderField: ENET_COOKIE)
@@ -183,9 +188,11 @@ class iTunesLyricHelper {
             if let lyric = json["lrc"]["lyric"].string {
                 print("\(song.filename), 找到正确的歌词信息")
                 let lrc = SFLrcParser(rawLyric: lyric).parse()
-//                print(lyrics)
+//                print(lyric)
                 completion(lrc)
-            }
+			} else {
+//				print(String.init(data: data, encoding: .utf8))
+			}
         }.resume()
 //        NSString *key = [NSString stringWithFormat: @"_fetchLyricWithSong-%@-%ld", song.name, (long)song.duration];
 //        [self.requestsDict setValue: request forKey: key];
@@ -280,6 +287,20 @@ class iTunesLyricHelper {
             return userCachePath
         }
         return nil
+    }
+    
+    func validateArtist(l: String?, r: String) -> Bool {
+        guard let l = l else {
+            return r == ""
+        }
+        let noWhiteL = l.replacingOccurrences(of: " ", with: "").lowercased().applyingTransform(StringTransform(rawValue: "Hant-Hans"), reverse: false)!
+        let noWhiteR = r.replacingOccurrences(of: " ", with: "").lowercased().applyingTransform(StringTransform(rawValue: "Hant-Hans"), reverse: false)!
+        print("Comparing " + noWhiteL + " and " + noWhiteR)
+        if noWhiteL == noWhiteR || noWhiteL.contains(noWhiteR) || noWhiteR.contains(noWhiteL) {
+            return true
+        } else {
+            return false
+        }
     }
 
 }

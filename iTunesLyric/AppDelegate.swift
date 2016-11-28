@@ -45,7 +45,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         // set preference window
         prefWindow.appearance = NSAppearance(named: NSAppearanceNameVibrantDark)
-        
+
 //        [self.updater checkForUpdatesInBackground];
 
         // init itunes playing state
@@ -238,17 +238,23 @@ extension AppDelegate {
         button.action = #selector(AppDelegate.terminate)
         return alert
     }
+	
 }
 
 
 extension AppDelegate {
+	
     func createLyricWindow() {
         // create lyric window
         print("creating")
-        lyricWindow = LyricDisplayWindow(contentRect: NSRect.init(x: 100, y: 100, width: (NSScreen.main()?.frame.width ?? 1080 - 2 * 100) / 2, height: 80), styleMask: .borderless, backing: NSBackingStoreType.buffered, defer: false)
+        lyricWindow = LyricDisplayWindow(contentRect: NSRect.init(x: 100, y: 100, width: (NSScreen.main()?.frame.width ?? 1080 - 2 * 100) / 3, height: 80), styleMask: [.borderless, .nonactivatingPanel], backing: .buffered, defer: false)
         print("created")
         lyricWindow.lyric = "Init"
         lyricWindow.makeKeyAndOrderFront(nil)
+        print("Window Frame")
+        print(lyricWindow.frame)
+        print("Inner Frame")
+        print(lyricWindow.innerView.frame)
     }
     
     func registerNotification() {
@@ -299,6 +305,9 @@ extension AppDelegate {
                 iTunesLyricHelper.shared.smartFetchLyric(with: song!, completion: { lrc in
 //                    self.iTunesLyricFetchFinished(song: $0!)
                     self.currentLrc = lrc
+					if lrc != nil && self.itunes.currentTrack?.lyrics == nil {
+						self.itunes.currentTrack?.setLyrics?(lrc!.lyric)
+					}
                 })
                 
                 if !lyricWindow.isVisible {
@@ -369,7 +378,9 @@ extension AppDelegate {
         guard let playerPosition = itunes?.playerPosition else {
             return
         }
-        lyricWindow.lyric = self.currentLrc?.currentLyric(byTime: Int(playerPosition * 1000)) ?? ""
+        let lyric = self.currentLrc?.currentLyric(byTime: Int(playerPosition * 1000)) ?? ""
+        lyricWindow.lyric = lyric
+
 //        print(playerPosition)
 //    NSString *time = [self secs2String: playerPosition];
 //    NSString *lyricStr = self.lyricDict[time];

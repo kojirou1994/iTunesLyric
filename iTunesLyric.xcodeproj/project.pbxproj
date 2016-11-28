@@ -22,8 +22,10 @@
 		E31C3FC51D7091EC00A8FCD2 /* iTunesLyricHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31C3FC41D7091EC00A8FCD2 /* iTunesLyricHelper.swift */; };
 		E31C3FCF1D70C3B200A8FCD2 /* SFLrcParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31C3FCD1D70C3B200A8FCD2 /* SFLrcParser.swift */; };
 		E31C3FD41D71AAF700A8FCD2 /* SearchQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31C3FD31D71AAF700A8FCD2 /* SearchQuery.swift */; };
+		E335A9F91D76965C00998893 /* RoundedNSView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E335A9F81D76965C00998893 /* RoundedNSView.swift */; };
 		E372F28F1D7440400048C0AB /* SFLyric.swift in Sources */ = {isa = PBXBuildFile; fileRef = E372F28E1D7440400048C0AB /* SFLyric.swift */; };
 		E372F2911D74408E0048C0AB /* SFLrc.swift in Sources */ = {isa = PBXBuildFile; fileRef = E372F2901D74408E0048C0AB /* SFLrc.swift */; };
+		E377E1641D77224C0008E907 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E377E1631D77224C0008E907 /* Main.storyboard */; };
 		E37EC1831D72098700F944F2 /* ScriptingBridge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3D4E3F81D720812001E4582 /* ScriptingBridge.framework */; };
 		E3C678611D72C4E50046110D /* iTunes.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3C678601D72C4E50046110D /* iTunes.swift */; };
 		E3C678621D730EFB0046110D /* SFJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31C3FC61D70B26B00A8FCD2 /* SFJSON.swift */; };
@@ -70,8 +72,10 @@
 		E31C3FC61D70B26B00A8FCD2 /* SFJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SFJSON.swift; path = iTunesLyric/Utility/SFJSON.swift; sourceTree = SOURCE_ROOT; };
 		E31C3FCD1D70C3B200A8FCD2 /* SFLrcParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SFLrcParser.swift; sourceTree = "<group>"; };
 		E31C3FD31D71AAF700A8FCD2 /* SearchQuery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchQuery.swift; sourceTree = "<group>"; };
+		E335A9F81D76965C00998893 /* RoundedNSView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedNSView.swift; sourceTree = "<group>"; };
 		E372F28E1D7440400048C0AB /* SFLyric.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SFLyric.swift; sourceTree = "<group>"; };
 		E372F2901D74408E0048C0AB /* SFLrc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SFLrc.swift; sourceTree = "<group>"; };
+		E377E1631D77224C0008E907 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		E3C678601D72C4E50046110D /* iTunes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iTunes.swift; sourceTree = "<group>"; };
 		E3D4E3F81D720812001E4582 /* ScriptingBridge.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ScriptingBridge.framework; path = System/Library/Frameworks/ScriptingBridge.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -134,6 +138,7 @@
 				E31C3FB01D6F572100A8FCD2 /* UI */,
 				E31C3F891D6F567F00A8FCD2 /* Assets.xcassets */,
 				E31C3F8B1D6F567F00A8FCD2 /* MainMenu.xib */,
+				E377E1631D77224C0008E907 /* Main.storyboard */,
 				E31C3F8E1D6F567F00A8FCD2 /* Info.plist */,
 				E31C3F861D6F567F00A8FCD2 /* iTunesLyric.xcdatamodeld */,
 				E31C3FB51D6F649200A8FCD2 /* iTunesLyric-Bridging-Header.h */,
@@ -166,6 +171,7 @@
 				E31C3FBC1D7025AE00A8FCD2 /* LyricDisplayWindow.swift */,
 				E31C3FBE1D70261D00A8FCD2 /* InnerView.swift */,
 				E31C3FC21D70808600A8FCD2 /* Constant.swift */,
+				E335A9F81D76965C00998893 /* RoundedNSView.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -278,7 +284,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0800;
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = Putotyra;
 				TargetAttributes = {
 					E31C3F801D6F567F00A8FCD2 = {
@@ -331,6 +337,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E377E1641D77224C0008E907 /* Main.storyboard in Resources */,
 				E31C3F8A1D6F567F00A8FCD2 /* Assets.xcassets in Resources */,
 				E31C3F8D1D6F567F00A8FCD2 /* MainMenu.xib in Resources */,
 			);
@@ -370,6 +377,7 @@
 				E372F28F1D7440400048C0AB /* SFLyric.swift in Sources */,
 				E31C3FCF1D70C3B200A8FCD2 /* SFLrcParser.swift in Sources */,
 				E31C3F881D6F567F00A8FCD2 /* iTunesLyric.xcdatamodeld in Sources */,
+				E335A9F91D76965C00998893 /* RoundedNSView.swift in Sources */,
 				E31C3FBF1D70261D00A8FCD2 /* InnerView.swift in Sources */,
 				E31C3FBB1D70208500A8FCD2 /* Song.swift in Sources */,
 			);
@@ -436,6 +444,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -485,6 +494,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
