@@ -39,7 +39,7 @@ class iTunesLyricHelper {
 //        requestsDict[key] = request
         
         print("Start Smart Fetch")
-        dump(request)
+//        dump(request)
         URLSession.shared.dataTask(with: request) { (data, response, error) in
             print("Got Smart Response")
             guard error == nil, let data = data, let bodyString = String.init(data: data, encoding: .utf8) else {

@@ -18,7 +18,7 @@ class LyricDisplayWindow: NSWindow {
 				let newFrame = rectOf(text: newValue, font: innerView.font)
                 innerView.frame = newFrame
                 innerView.text = newValue
-				setFrame(NSRect.init(origin: self.frame.origin, size: newFrame.size), display: true)
+				setFrame(NSRect.init(origin: frame.origin, size: CGSize(width: newFrame.size.width, height: newFrame.size.height)), display: true)
             }
         }
         get {
@@ -50,7 +50,7 @@ class LyricDisplayWindow: NSWindow {
         var size = (text as NSString).size(withAttributes: [NSFontAttributeName: font])
         size.width += 2 * leftMargin
         size.height += 2 * topMargin
-        return NSRect(x: (frame.width - size.width) * 0.5, y: (frame.height - size.height) * 0.5, width: size.width, height: size.height)
+        return NSRect(x: 0, y: 0, width: size.width, height: size.height)
     }
     
     func fontChanged(notification: NSNotification) {
@@ -89,4 +89,9 @@ class LyricDisplayWindow: NSWindow {
         */
         super.mouseDragged(with: event)
     }
+	
+	override func mouseUp(with event: NSEvent) {
+		super.mouseUp(with: event)
+		Swift.print("Window Frame: \(frame)")
+	}
 }

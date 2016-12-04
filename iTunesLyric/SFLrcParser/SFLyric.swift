@@ -20,17 +20,17 @@ public struct SFLyric {
         let time = time.substring(from: time.index(time.startIndex, offsetBy: 1))
         guard let minute = Int(time.substring(to: time.index(time.startIndex, offsetBy: 2))),
             let second = Int(time[time.index(time.startIndex, offsetBy: 3)..<time.index(time.startIndex, offsetBy: 5)]),
-            let mileSecond = Int(time[time.index(time.startIndex, offsetBy: 6)..<time.endIndex]) else {
+            case let mileSecondStr = time[time.index(time.startIndex, offsetBy: 6)..<time.endIndex],
+			let mileSecond = Int(mileSecondStr) else {
 				throw SFLyricError.timeSyntaxError
         }
-		if mileSecond / 10 == 0 {
-			self.time = (minute * 60 + second) * 1000 + mileSecond * 100
-		}
-		else if mileSecond / 100 == 0 {
-			self.time = (minute * 60 + second) * 1000 + mileSecond * 10
-		}
-		else {
+		switch mileSecondStr.characters.count {
+		case 3:
 			self.time = (minute * 60 + second) * 1000 + mileSecond
+		case 2:
+			self.time = (minute * 60 + second) * 1000 + mileSecond * 10
+		default:
+			self.time = (minute * 60 + second) * 1000 + mileSecond * 100
 		}
         self.text = text
 	}

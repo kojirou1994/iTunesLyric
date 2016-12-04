@@ -67,16 +67,21 @@ class InnerView: NSView {
     }
     
     override func mouseEntered(with event: NSEvent) {
-        Swift.print("mouseEntered")
+//        Swift.print("mouseEntered")
         mouseIn = true
         super.mouseEntered(with: event)
     }
     
     override func mouseExited(with event: NSEvent) {
-        Swift.print("mouseExited")
+//        Swift.print("mouseExited")
         mouseIn = false
         super.mouseExited(with: event)
     }
+	
+	override func mouseUp(with event: NSEvent) {
+		super.mouseUp(with: event)
+		Swift.print("View Frame: \(frame)")
+	}
 
     override func updateTrackingAreas() {
         if trackingArea != nil {

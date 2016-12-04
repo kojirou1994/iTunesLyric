@@ -13,10 +13,11 @@ public struct SFLrc {
     public var lyrics: [SFLyric]
     
     public func currentLyric(byTime mileSecond: Int) -> String {
-        guard let laterLyric = lyrics.index(where: { $0.time > mileSecond }), laterLyric > 0 else {
-            return ""
+        guard let laterLyric = lyrics.index(where: { $0.time > mileSecond }) else {
+            return lyrics.last?.text ?? ""
         }
-        return lyrics[laterLyric - 1].text
+		
+		return laterLyric == 0 ? "" : lyrics[laterLyric - 1].text
     }
 	
 	public var lyric: String {

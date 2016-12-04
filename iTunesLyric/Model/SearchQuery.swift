@@ -31,7 +31,7 @@ struct SearchQuery {
     }
     
     var httpBody: Data? {
-        let param: [String : Any] = [
+        let param: [String: Any] = [
             "s": key,
             "type": type.rawValue,
             "total": total,
@@ -41,10 +41,16 @@ struct SearchQuery {
             "hlposttag": "</span>"
         ]
         var parts: [String] = []
+		
+		let allowedCharacterSet = CharacterSet(charactersIn: "!*'();:@&=+$,/?%#[] ").inverted
+
         for (key, value) in param {
-            let part = "\(key)=\(value)"
+            let part = String(format: "%@=%@",
+                              String(describing: key).addingPercentEncoding(withAllowedCharacters: allowedCharacterSet)!,
+                              String(describing: value).addingPercentEncoding(withAllowedCharacters: allowedCharacterSet)!)
             parts.append(part)
         }
+		print("Search Query: \(parts.joined(separator: "&"))")
         return parts.joined(separator: "&").data(using: .utf8)
 //        return try? JSONSerialization.data(withJSONObject: param, options: .prettyPrinted)
     }

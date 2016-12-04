@@ -72,6 +72,7 @@
 		E31C3FC61D70B26B00A8FCD2 /* SFJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SFJSON.swift; path = iTunesLyric/Utility/SFJSON.swift; sourceTree = SOURCE_ROOT; };
 		E31C3FCD1D70C3B200A8FCD2 /* SFLrcParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SFLrcParser.swift; sourceTree = "<group>"; };
 		E31C3FD31D71AAF700A8FCD2 /* SearchQuery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchQuery.swift; sourceTree = "<group>"; };
+		E323F3131DF4A77F00E17D54 /* iTunesLyric.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iTunesLyric.entitlements; sourceTree = "<group>"; };
 		E335A9F81D76965C00998893 /* RoundedNSView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedNSView.swift; sourceTree = "<group>"; };
 		E372F28E1D7440400048C0AB /* SFLyric.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SFLyric.swift; sourceTree = "<group>"; };
 		E372F2901D74408E0048C0AB /* SFLrc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SFLrc.swift; sourceTree = "<group>"; };
@@ -130,6 +131,7 @@
 		E31C3F831D6F567F00A8FCD2 /* iTunesLyric */ = {
 			isa = PBXGroup;
 			children = (
+				E323F3131DF4A77F00E17D54 /* iTunesLyric.entitlements */,
 				E31C3F841D6F567F00A8FCD2 /* AppDelegate.swift */,
 				E31C3FD11D71A98400A8FCD2 /* Model */,
 				E31C3FD21D71AA0300A8FCD2 /* Utility */,
@@ -294,7 +296,7 @@
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Sandbox = {
-								enabled = 0;
+								enabled = 1;
 							};
 						};
 					};
@@ -523,7 +525,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = "";
+				CODE_SIGN_ENTITLEMENTS = iTunesLyric/iTunesLyric.entitlements;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = R8LT9M7XB2;
@@ -542,7 +544,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = "";
+				CODE_SIGN_ENTITLEMENTS = iTunesLyric/iTunesLyric.entitlements;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = R8LT9M7XB2;

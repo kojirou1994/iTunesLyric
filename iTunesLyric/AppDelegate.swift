@@ -59,6 +59,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             if song != nil {
                 print("Song Not Nil")
                 lyricWindow.lyric = "\(song!.filename)"
+				currentLrc = nil
                 iTunesLyricHelper.shared.smartFetchLyric(with: song!, completion: { (lrc) in
 //                    self.iTunesLyricFetchFinished(song: song!)
 					self.currentLrc = lrc
@@ -310,6 +311,7 @@ extension AppDelegate {
                 }else {
                     lyricWindow.lyric = "没有检测到歌曲信息"
                 }
+				currentLrc = nil
                 iTunesLyricHelper.shared.smartFetchLyric(with: song!, completion: { lrc in
 //                    self.iTunesLyricFetchFinished(song: $0!)
                     self.currentLrc = lrc
