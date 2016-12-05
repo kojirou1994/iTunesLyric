@@ -16,7 +16,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @IBOutlet weak var prefWindow: NSWindow!
 
     var lyricWindow: LyricDisplayWindow!
-    var barView: StatusBarView!
+    var barView: LyricStatusBarMenu!
     var itunes: iTunesApplication!
     var timer: Timer?
 	var lyric: LyricRepresentable? {
@@ -45,7 +45,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         registerNotification()
         
         // init status bar icon
-        barView = StatusBarView(frame: NSRect(x: 0, y: 0, width: 24, height: 18))
+        barView = LyricStatusBarMenu()
         
         // set preference window
         prefWindow.appearance = NSAppearance(named: NSAppearanceNameVibrantDark)

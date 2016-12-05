@@ -13,7 +13,7 @@
 		E31C3F8D1D6F567F00A8FCD2 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = E31C3F8B1D6F567F00A8FCD2 /* MainMenu.xib */; };
 		E31C3F981D6F568000A8FCD2 /* iTunesLyricTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31C3F971D6F568000A8FCD2 /* iTunesLyricTests.swift */; };
 		E31C3FA31D6F568000A8FCD2 /* iTunesLyricUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31C3FA21D6F568000A8FCD2 /* iTunesLyricUITests.swift */; };
-		E31C3FB21D6F57B900A8FCD2 /* StatusBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31C3FB11D6F57B900A8FCD2 /* StatusBarView.swift */; };
+		E31C3FB21D6F57B900A8FCD2 /* LyricStatusBarMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31C3FB11D6F57B900A8FCD2 /* LyricStatusBarMenu.swift */; };
 		E31C3FBB1D70208500A8FCD2 /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31C3FBA1D70208500A8FCD2 /* Song.swift */; };
 		E31C3FBD1D7025AE00A8FCD2 /* LyricDisplayWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31C3FBC1D7025AE00A8FCD2 /* LyricDisplayWindow.swift */; };
 		E31C3FBF1D70261D00A8FCD2 /* InnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31C3FBE1D70261D00A8FCD2 /* InnerView.swift */; };
@@ -63,7 +63,7 @@
 		E31C3F9E1D6F568000A8FCD2 /* iTunesLyricUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iTunesLyricUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E31C3FA21D6F568000A8FCD2 /* iTunesLyricUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iTunesLyricUITests.swift; sourceTree = "<group>"; };
 		E31C3FA41D6F568000A8FCD2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E31C3FB11D6F57B900A8FCD2 /* StatusBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusBarView.swift; sourceTree = "<group>"; };
+		E31C3FB11D6F57B900A8FCD2 /* LyricStatusBarMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LyricStatusBarMenu.swift; sourceTree = "<group>"; };
 		E31C3FB51D6F649200A8FCD2 /* iTunesLyric-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iTunesLyric-Bridging-Header.h"; sourceTree = "<group>"; };
 		E31C3FBA1D70208500A8FCD2 /* Song.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
 		E31C3FBC1D7025AE00A8FCD2 /* LyricDisplayWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LyricDisplayWindow.swift; sourceTree = "<group>"; };
@@ -173,7 +173,7 @@
 		E31C3FB01D6F572100A8FCD2 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				E31C3FB11D6F57B900A8FCD2 /* StatusBarView.swift */,
+				E31C3FB11D6F57B900A8FCD2 /* LyricStatusBarMenu.swift */,
 				E31C3FBC1D7025AE00A8FCD2 /* LyricDisplayWindow.swift */,
 				E31C3FBE1D70261D00A8FCD2 /* InnerView.swift */,
 				E31C3FC21D70808600A8FCD2 /* Constant.swift */,
@@ -375,7 +375,7 @@
 				E31C3FBD1D7025AE00A8FCD2 /* LyricDisplayWindow.swift in Sources */,
 				E3C678611D72C4E50046110D /* iTunes.swift in Sources */,
 				E31C3FC51D7091EC00A8FCD2 /* iTunesLyricHelper.swift in Sources */,
-				E31C3FB21D6F57B900A8FCD2 /* StatusBarView.swift in Sources */,
+				E31C3FB21D6F57B900A8FCD2 /* LyricStatusBarMenu.swift in Sources */,
 				E372F2911D74408E0048C0AB /* SFLrc.swift in Sources */,
 				E31C3FC31D70808600A8FCD2 /* Constant.swift in Sources */,
 				E31C3FD41D71AAF700A8FCD2 /* SearchQuery.swift in Sources */,

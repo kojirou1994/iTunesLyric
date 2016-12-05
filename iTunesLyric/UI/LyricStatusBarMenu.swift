@@ -18,25 +18,18 @@ enum StatusBarTag: Int {
     case checkUpdate
 }
 
-class StatusBarView: NSView, NSMenuDelegate, NSWindowDelegate {
+class LyricStatusBarMenu: NSObject, NSMenuDelegate, NSWindowDelegate {
 
     var statusItem: NSStatusItem!
     var statusMenu: NSMenu!
-    var normalIcon: CGImage?
-    var isHilight: Bool = false
     
-    override init(frame frameRect: NSRect) {
-        statusItem = NSStatusBar.system().statusItem(withLength: -2)
-        let itemWidth = statusItem.length
-        let itemHeight = NSStatusBar.system().thickness
-        let itemRect = NSRect(x: 0, y: 0, width: itemWidth, height: itemHeight)
-        super.init(frame: itemRect)
+	override init() {
+		super.init()
+        statusItem = NSStatusBar.system().statusItem(withLength: NSSquareStatusItemLength)
         statusItem.highlightMode = true
         initStatusMenu()
-        statusItem.view = self
-        statusItem.highlightMode = true
-        let normalImage = NSImage(named: "star")
-        normalIcon = normalImage?.cgImage(forProposedRect: nil, context: nil, hints: nil)
+		statusItem.image = NSImage(named: "music")
+		statusItem.menu = statusMenu
     }
     
     required init?(coder: NSCoder) {
@@ -48,25 +41,19 @@ class StatusBarView: NSView, NSMenuDelegate, NSWindowDelegate {
         NSStatusBar.system().removeStatusItem(statusItem)
     }
     
-    override func draw(_ dirtyRect: NSRect) {
-        super.draw(dirtyRect)
-
-        // Drawing code here.
-    }
-    
     private func initStatusMenu() {
         statusMenu = NSMenu(title: "menu")
         statusMenu.delegate = self
         
         var newItem: NSMenuItem
         
-        newItem = NSMenuItem(title: "隐藏歌词", action: #selector(StatusBarView.hideLyric(item:)), keyEquivalent: "")
+        newItem = NSMenuItem(title: "隐藏歌词", action: #selector(LyricStatusBarMenu.hideLyric(item:)), keyEquivalent: "")
         newItem.tag = StatusBarTag.showLyric.rawValue
         newItem.target = self
         newItem.isEnabled = true
         statusMenu.addItem(newItem)
         
-        newItem = NSMenuItem(title: "搜索歌词...", action: #selector(StatusBarView.showPreference(item:)), keyEquivalent: "")
+        newItem = NSMenuItem(title: "搜索歌词...", action: #selector(LyricStatusBarMenu.showPreference(item:)), keyEquivalent: "")
         newItem.tag = StatusBarTag.searchLyric.rawValue
         newItem.target = self
         newItem.isEnabled = true
@@ -74,7 +61,7 @@ class StatusBarView: NSView, NSMenuDelegate, NSWindowDelegate {
         
         statusMenu.addItem(NSMenuItem.separator())
         
-        newItem = NSMenuItem(title: "偏好设置...", action: #selector(StatusBarView.showPreference(item:)), keyEquivalent: "")
+        newItem = NSMenuItem(title: "偏好设置...", action: #selector(LyricStatusBarMenu.showPreference(item:)), keyEquivalent: "")
         newItem.tag = StatusBarTag.preference.rawValue
         newItem.target = self
         newItem.isEnabled = true
@@ -88,58 +75,25 @@ class StatusBarView: NSView, NSMenuDelegate, NSWindowDelegate {
         
         statusMenu.addItem(NSMenuItem.separator())
         
-        newItem = NSMenuItem(title: "反馈...", action: #selector(StatusBarView.showPreference(item:)), keyEquivalent: "")
+        newItem = NSMenuItem(title: "反馈...", action: #selector(LyricStatusBarMenu.showPreference(item:)), keyEquivalent: "")
         newItem.tag = StatusBarTag.feedback.rawValue
         newItem.target = self
         newItem.isEnabled = true
         statusMenu.addItem(newItem)
         
-        newItem = NSMenuItem(title: "关于...", action: #selector(StatusBarView.showPreference(item:)), keyEquivalent: "")
+        newItem = NSMenuItem(title: "关于...", action: #selector(LyricStatusBarMenu.showPreference(item:)), keyEquivalent: "")
         newItem.tag = StatusBarTag.about.rawValue
         newItem.target = self
         newItem.isEnabled = true
         statusMenu.addItem(newItem)
 
-        newItem = NSMenuItem(title: "Quit", action: #selector(StatusBarView.quit), keyEquivalent: "")
+        newItem = NSMenuItem(title: "Quit", action: #selector(LyricStatusBarMenu.quit), keyEquivalent: "")
         newItem.tag = StatusBarTag.quit.rawValue
         newItem.target = self
         newItem.isEnabled = true
         statusMenu.addItem(newItem)
     }
-    
-    // MARK: - pragma mark Mouse Event
-    
-    override func rightMouseDown(with event: NSEvent) {
-        isHilight = true
-        needsDisplay = true
-        statusItem.popUpMenu(statusMenu)
-        super.rightMouseDown(with: event)
-    }
-    
-    override func mouseDown(with event: NSEvent) {
-        isHilight = true
-        needsDisplay = true
-        statusItem.popUpMenu(statusMenu)
-        super.mouseDown(with: event)
-    }
-    
-    override func mouseUp(with event: NSEvent) {
-        isHilight = false
-        needsDisplay = true
-        super.mouseUp(with: event)
-    }
-
-    
-    // MARK: - pragma mark NSMenu Delegate
-    func menuWillOpen(_ menu: NSMenu) {
-        isHilight = true
-        needsDisplay = true
-    }
-    
-    func menuDidClose(_ menu: NSMenu) {
-        isHilight = false
-        needsDisplay = true
-    }
+	
     
     // MARK: - pragma mark NSMenu Action
     
@@ -156,6 +110,7 @@ class StatusBarView: NSView, NSMenuDelegate, NSWindowDelegate {
     }
     
     func showPreference(item: NSMenuItem) {
+		Swift.print("Show Preference \(item.title)")
         NotificationCenter.default.post(name: NSNotification.Name("kNotification_ShowWindow"), object: item.tag)
     }
     
