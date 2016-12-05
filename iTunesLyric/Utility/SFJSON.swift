@@ -78,7 +78,7 @@ public struct SFJSON {
         else if let _ = object as? [String: Any] {
             type = .dictionary
         }
-            print(type)
+//            print(type)
     }
     #else
     internal init(object: Any) {
@@ -96,7 +96,7 @@ public struct SFJSON {
         else if let _ = object as? [String: AnyObject] {
             type = .dictionary
         }
-        print(type)
+//        print(type)
     }
     #endif
     

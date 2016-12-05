@@ -19,7 +19,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var barView: StatusBarView!
     var itunes: iTunesApplication!
     var timer: Timer?
-	var currentLrc: SFLrc? {
+	var lyric: LyricRepresentable? {
 		didSet {
 //			print(currentLrc)
 		}
@@ -59,10 +59,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             if song != nil {
                 print("Song Not Nil")
                 lyricWindow.lyric = "\(song!.filename)"
-				currentLrc = nil
+				lyric = nil
                 iTunesLyricHelper.shared.smartFetchLyric(with: song!, completion: { (lrc) in
 //                    self.iTunesLyricFetchFinished(song: song!)
-					self.currentLrc = lrc
+					self.lyric = lrc
 					print(self.itunes.currentTrack?.lyrics)
 					if lrc != nil && self.itunes.currentTrack?.lyrics == nil || self.itunes.currentTrack?.lyrics == "" {
 						self.itunes.currentTrack?.setLyrics?(lrc!.lyric)
@@ -311,10 +311,10 @@ extension AppDelegate {
                 }else {
                     lyricWindow.lyric = "没有检测到歌曲信息"
                 }
-				currentLrc = nil
+				lyric = nil
                 iTunesLyricHelper.shared.smartFetchLyric(with: song!, completion: { lrc in
 //                    self.iTunesLyricFetchFinished(song: $0!)
-                    self.currentLrc = lrc
+                    self.lyric = lrc
 					print(self.itunes.currentTrack?.lyrics)
 					if lrc != nil && self.itunes.currentTrack?.lyrics == nil || self.itunes.currentTrack?.lyrics == "" {
 						self.itunes.currentTrack?.setLyrics?(lrc!.lyric)
@@ -334,12 +334,12 @@ extension AppDelegate {
     func changeSong() {
         timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(AppDelegate.fetchProgress(timer:)), userInfo: nil, repeats: true)
         self.song = currentPlayingSong()
-        self.currentLrc = nil
+        self.lyric = nil
         if song != nil {
             lyricWindow.lyric = "\(song!.filename)"
             iTunesLyricHelper.shared.smartFetchLyric(with: song!, completion: { (lrc) in
                 //                    self.iTunesLyricFetchFinished(song: song!)
-				self.currentLrc = lrc
+				self.lyric = lrc
 				print(self.itunes.currentTrack?.lyrics)
 				if lrc != nil && self.itunes.currentTrack?.lyrics == nil || self.itunes.currentTrack?.lyrics == "" {
 					self.itunes.currentTrack?.setLyrics?(lrc!.lyric)
@@ -393,7 +393,7 @@ extension AppDelegate {
         guard let playerPosition = itunes?.playerPosition else {
             return
         }
-        let lyric = self.currentLrc?.currentLyric(byTime: Int(playerPosition * 1000)) ?? ""
+        let lyric = self.lyric?.lyric(by: Int(playerPosition * 1000)) ?? ""
         lyricWindow.lyric = lyric
 
 //        print(playerPosition)

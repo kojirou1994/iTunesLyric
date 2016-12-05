@@ -20,13 +20,15 @@
 		E31C3FC11D702C0600A8FCD2 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31C3FC01D702C0600A8FCD2 /* Util.swift */; };
 		E31C3FC31D70808600A8FCD2 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31C3FC21D70808600A8FCD2 /* Constant.swift */; };
 		E31C3FC51D7091EC00A8FCD2 /* iTunesLyricHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31C3FC41D7091EC00A8FCD2 /* iTunesLyricHelper.swift */; };
-		E31C3FCF1D70C3B200A8FCD2 /* SFLrcParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31C3FCD1D70C3B200A8FCD2 /* SFLrcParser.swift */; };
+		E31C3FCF1D70C3B200A8FCD2 /* SFLyricParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31C3FCD1D70C3B200A8FCD2 /* SFLyricParser.swift */; };
 		E31C3FD41D71AAF700A8FCD2 /* SearchQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31C3FD31D71AAF700A8FCD2 /* SearchQuery.swift */; };
 		E335A9F91D76965C00998893 /* RoundedNSView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E335A9F81D76965C00998893 /* RoundedNSView.swift */; };
-		E372F28F1D7440400048C0AB /* SFLyric.swift in Sources */ = {isa = PBXBuildFile; fileRef = E372F28E1D7440400048C0AB /* SFLyric.swift */; };
+		E372F28F1D7440400048C0AB /* SFLrcLyric.swift in Sources */ = {isa = PBXBuildFile; fileRef = E372F28E1D7440400048C0AB /* SFLrcLyric.swift */; };
 		E372F2911D74408E0048C0AB /* SFLrc.swift in Sources */ = {isa = PBXBuildFile; fileRef = E372F2901D74408E0048C0AB /* SFLrc.swift */; };
 		E377E1641D77224C0008E907 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E377E1631D77224C0008E907 /* Main.storyboard */; };
 		E37EC1831D72098700F944F2 /* ScriptingBridge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3D4E3F81D720812001E4582 /* ScriptingBridge.framework */; };
+		E3AF3D011DF55D56007D6ADD /* LyricRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AF3D001DF55D56007D6ADD /* LyricRepresentable.swift */; };
+		E3AF3D031DF55EDE007D6ADD /* SFPlainLyric.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AF3D021DF55EDE007D6ADD /* SFPlainLyric.swift */; };
 		E3C678611D72C4E50046110D /* iTunes.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3C678601D72C4E50046110D /* iTunes.swift */; };
 		E3C678621D730EFB0046110D /* SFJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31C3FC61D70B26B00A8FCD2 /* SFJSON.swift */; };
 /* End PBXBuildFile section */
@@ -70,13 +72,15 @@
 		E31C3FC21D70808600A8FCD2 /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		E31C3FC41D7091EC00A8FCD2 /* iTunesLyricHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iTunesLyricHelper.swift; sourceTree = "<group>"; };
 		E31C3FC61D70B26B00A8FCD2 /* SFJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SFJSON.swift; path = iTunesLyric/Utility/SFJSON.swift; sourceTree = SOURCE_ROOT; };
-		E31C3FCD1D70C3B200A8FCD2 /* SFLrcParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SFLrcParser.swift; sourceTree = "<group>"; };
+		E31C3FCD1D70C3B200A8FCD2 /* SFLyricParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SFLyricParser.swift; sourceTree = "<group>"; };
 		E31C3FD31D71AAF700A8FCD2 /* SearchQuery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchQuery.swift; sourceTree = "<group>"; };
 		E323F3131DF4A77F00E17D54 /* iTunesLyric.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iTunesLyric.entitlements; sourceTree = "<group>"; };
 		E335A9F81D76965C00998893 /* RoundedNSView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedNSView.swift; sourceTree = "<group>"; };
-		E372F28E1D7440400048C0AB /* SFLyric.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SFLyric.swift; sourceTree = "<group>"; };
+		E372F28E1D7440400048C0AB /* SFLrcLyric.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SFLrcLyric.swift; sourceTree = "<group>"; };
 		E372F2901D74408E0048C0AB /* SFLrc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SFLrc.swift; sourceTree = "<group>"; };
 		E377E1631D77224C0008E907 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		E3AF3D001DF55D56007D6ADD /* LyricRepresentable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LyricRepresentable.swift; sourceTree = "<group>"; };
+		E3AF3D021DF55EDE007D6ADD /* SFPlainLyric.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SFPlainLyric.swift; sourceTree = "<group>"; };
 		E3C678601D72C4E50046110D /* iTunes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iTunes.swift; sourceTree = "<group>"; };
 		E3D4E3F81D720812001E4582 /* ScriptingBridge.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ScriptingBridge.framework; path = System/Library/Frameworks/ScriptingBridge.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -190,9 +194,11 @@
 		E31C3FCC1D70C39F00A8FCD2 /* SFLrcParser */ = {
 			isa = PBXGroup;
 			children = (
-				E31C3FCD1D70C3B200A8FCD2 /* SFLrcParser.swift */,
-				E372F28E1D7440400048C0AB /* SFLyric.swift */,
+				E31C3FCD1D70C3B200A8FCD2 /* SFLyricParser.swift */,
+				E3AF3D001DF55D56007D6ADD /* LyricRepresentable.swift */,
+				E372F28E1D7440400048C0AB /* SFLrcLyric.swift */,
 				E372F2901D74408E0048C0AB /* SFLrc.swift */,
+				E3AF3D021DF55EDE007D6ADD /* SFPlainLyric.swift */,
 			);
 			path = SFLrcParser;
 			sourceTree = "<group>";
@@ -374,10 +380,12 @@
 				E31C3FC31D70808600A8FCD2 /* Constant.swift in Sources */,
 				E31C3FD41D71AAF700A8FCD2 /* SearchQuery.swift in Sources */,
 				E31C3F851D6F567F00A8FCD2 /* AppDelegate.swift in Sources */,
+				E3AF3D011DF55D56007D6ADD /* LyricRepresentable.swift in Sources */,
 				E31C3FC11D702C0600A8FCD2 /* Util.swift in Sources */,
 				E3C678621D730EFB0046110D /* SFJSON.swift in Sources */,
-				E372F28F1D7440400048C0AB /* SFLyric.swift in Sources */,
-				E31C3FCF1D70C3B200A8FCD2 /* SFLrcParser.swift in Sources */,
+				E3AF3D031DF55EDE007D6ADD /* SFPlainLyric.swift in Sources */,
+				E372F28F1D7440400048C0AB /* SFLrcLyric.swift in Sources */,
+				E31C3FCF1D70C3B200A8FCD2 /* SFLyricParser.swift in Sources */,
 				E31C3F881D6F567F00A8FCD2 /* iTunesLyric.xcdatamodeld in Sources */,
 				E335A9F91D76965C00998893 /* RoundedNSView.swift in Sources */,
 				E31C3FBF1D70261D00A8FCD2 /* InnerView.swift in Sources */,

@@ -10,7 +10,7 @@ import Foundation
 
 typealias FetchLyricListCompletion = ([Any]) -> Void
 
-typealias FetchLyricCompletion = (SFLrc?) -> Void
+typealias FetchLyricCompletion = (LyricRepresentable?) -> Void
 
 class iTunesLyricHelper {
     
@@ -187,7 +187,7 @@ class iTunesLyricHelper {
             }
             if let lyric = json["lrc"]["lyric"].string {
                 print("\(song.filename), 找到正确的歌词信息")
-                let lrc = SFLrcParser(rawLyric: lyric).parse()
+                let lrc = SFLyricParser.parse(lyric: lyric)
 //                print(lyric)
                 completion(lrc)
 			} else {
@@ -297,8 +297,10 @@ class iTunesLyricHelper {
         let noWhiteR = r.replacingOccurrences(of: " ", with: "").lowercased().applyingTransform(StringTransform(rawValue: "Hant-Hans"), reverse: false)!
         print("Comparing " + noWhiteL + " and " + noWhiteR)
         if noWhiteL == noWhiteR || noWhiteL.contains(noWhiteR) || noWhiteR.contains(noWhiteL) {
+			print("Result: Matched")
             return true
         } else {
+			print("Result: UnMatched")
             return false
         }
     }

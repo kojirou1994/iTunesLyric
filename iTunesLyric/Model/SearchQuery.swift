@@ -50,7 +50,7 @@ struct SearchQuery {
                               String(describing: value).addingPercentEncoding(withAllowedCharacters: allowedCharacterSet)!)
             parts.append(part)
         }
-		print("Search Query: \(parts.joined(separator: "&"))")
+//		print("Search Query: \(parts.joined(separator: "&"))")
         return parts.joined(separator: "&").data(using: .utf8)
 //        return try? JSONSerialization.data(withJSONObject: param, options: .prettyPrinted)
     }
