@@ -8,31 +8,37 @@
 
 import Cocoa
 
-class Song: Equatable {
+open class Song {
     
-    var album: String = "default"
-    
+//	var album: String
+	
     var artist: String
     
     var title: String
-    
-    var neteaseId: Int
-    
-    init?(title: String, artist: String, album: String, neteaseId: Int = 0) {
+	
+    init?(title: String, artist: String/*, album: String, neteaseId: Int = 0*/) {
         guard title.characters.count != 0 else {
             return nil
         }
-        self.album = album
+//        self.album = album
         self.artist = artist
         self.title = title.components(separatedBy: "(")[0]
-        self.neteaseId = neteaseId
+//        self.neteaseId = neteaseId
     }
-    
-    public static func ==(lhs: Song, rhs: Song) -> Bool {
-        return lhs.title == rhs.title && lhs.artist == rhs.artist
-    }
-    
-    var filename: String {
-        return "\(artist == "" ? "Unknown" : artist) - \(title)"
-    }
+}
+
+extension Song: Equatable {
+	
+	public static func ==(lhs: Song, rhs: Song) -> Bool {
+		return lhs.title == rhs.title && lhs.artist == rhs.artist
+	}
+	
+}
+
+extension Song {
+	
+	var filename: String {
+		return "\(artist == "" ? "Unknown Artist" : artist) - \(title)"
+	}
+	
 }

@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct SFLrc: LyricRepresentable {
+public struct SFLrc {
     
     public var lyrics: [SFLrcLyric]
 	
@@ -29,17 +29,6 @@ public struct SFLrc: LyricRepresentable {
 			}
 		})
 		lyrics.sort{ $0 < $1 }
-	}
-	
-	public func lyric(by mileSecond: Int) -> String {
-		guard let laterLyric = lyrics.index(where: { $0.time > mileSecond }) else {
-			return lyrics.last?.text ?? ""
-		}
-		return laterLyric == 0 ? "" : lyrics[laterLyric - 1].text
-	}
-	
-	public var lyric: String {
-		return lyrics.map({ $0.text }).joined(separator: "\n")
 	}
 	
 }

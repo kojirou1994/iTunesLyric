@@ -10,12 +10,12 @@ import Foundation
 
 public struct SFLyricParser {
     
-	public static func parse(lyric: String) -> LyricRepresentable {
+	public static func parse(lyric: String) -> SFLyric {
 		if let lrc = SFLrc(lyric: lyric) {
-			return lrc
+			return .lrc(lrc)
 		}
 		else {
-			return SFPlainLyric(lyric: lyric)
+			return .plain(lyric.components(separatedBy: "\n"))
 		}
     }
 	

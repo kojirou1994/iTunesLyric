@@ -1,0 +1,880 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		08700CBB713B443AFA394EFD6B74E402 /* libxmlHTMLNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533EF471DEF73B1BAA165B447BDECA85 /* libxmlHTMLNode.swift */; };
+		1BC3D304D6D2CD36AD7E4DF20E3ACDBC /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 270DD1219F1E6CF00379D39F252D87C6 /* Cocoa.framework */; };
+		2ADED6E9AA9A2F6FF378960A9C51CF38 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 270DD1219F1E6CF00379D39F252D87C6 /* Cocoa.framework */; };
+		322F32F75AC8A04064F70A089800AF88 /* Kanna-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 349C621B06592780F4D407EF354815EF /* Kanna-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3DB400D8B8AADDF43E1439E3441E814B /* Kanna-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E773DB4BA0F7ED0C94EAFA8C0ED2DAD8 /* Kanna-dummy.m */; };
+		436871564BF1C99AA86206B69CDB40DD /* Kanna.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C01807B7A740FB509C0A5BC9E2FB597 /* Kanna.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		500BFA7CD11C56710C35F7B8199F2A8B /* Pods-iTunesLyricTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A2107A8B2DF250FBA39496F46A2F67 /* Pods-iTunesLyricTests-dummy.m */; };
+		58EEED432F39D40CAA1C1FAB0D38D3F7 /* Pods-iTunesLyric-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B92690FF19DBECDEC955604E51BA9EB /* Pods-iTunesLyric-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		634F01C0D06986FD15F647234ADA7CBC /* Kanna.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B6D38A36580A05D39E99551CC6752E /* Kanna.swift */; };
+		781A4D12CC4A83EA4705C6029254B012 /* libxmlHTMLDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = E040D43135A5A6C37004F1BBF4C49942 /* libxmlHTMLDocument.swift */; };
+		8773CAB7F6465EDE0DFD59AF18174E47 /* Pods-iTunesLyricTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 63C674D3DC6902A5857B789855BC4DFD /* Pods-iTunesLyricTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9E19069796EFAD55C22AFB1EA7F86572 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 270DD1219F1E6CF00379D39F252D87C6 /* Cocoa.framework */; };
+		AF863C36D259D89189A0BDF54912C76E /* CSS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714B0F54E87FD450F287E216B164791B /* CSS.swift */; };
+		D76F5C7AAB92583AC86B89669EB1F503 /* Pods-iTunesLyric-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F8E4223C5492C7337989A3732354A553 /* Pods-iTunesLyric-dummy.m */; };
+		DB097178805AA93516DAF73B26CA88EE /* Pods-iTunesLyricUITests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 678B09963E5921A05F9E798506FA444D /* Pods-iTunesLyricUITests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E19BE6C403A3ECD042EE34C246261F3D /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 270DD1219F1E6CF00379D39F252D87C6 /* Cocoa.framework */; };
+		FD87F8764674EFAAF3AABCA2552E5127 /* libxmlParserOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED7164FE687D5C00EFF2F075A8A22F5 /* libxmlParserOption.swift */; };
+		FEB8B7970557E23C1C32C7B5D0E2753D /* Pods-iTunesLyricUITests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F9AE44D1563D5B5DB13234EC2F11195 /* Pods-iTunesLyricUITests-dummy.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		986282389A8468292D60562E139BE636 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4D10E4FF5A483B852B47CCA0B994E340;
+			remoteInfo = Kanna;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0E32186615C9443F6A3E8621C5C53784 /* Pods-iTunesLyric.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-iTunesLyric.release.xcconfig"; sourceTree = "<group>"; };
+		1B92690FF19DBECDEC955604E51BA9EB /* Pods-iTunesLyric-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-iTunesLyric-umbrella.h"; sourceTree = "<group>"; };
+		1ED7164FE687D5C00EFF2F075A8A22F5 /* libxmlParserOption.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = libxmlParserOption.swift; path = Sources/Kanna/libxmlParserOption.swift; sourceTree = "<group>"; };
+		270DD1219F1E6CF00379D39F252D87C6 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/System/Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
+		28B1C8D986B0FB7F9B4ACF3A7B30B753 /* Pods_iTunesLyricTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_iTunesLyricTests.framework; path = "Pods-iTunesLyricTests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2B5ECC8F395C65A22676FC64EFC0F1E6 /* Kanna.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Kanna.framework; path = Kanna.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2C01807B7A740FB509C0A5BC9E2FB597 /* Kanna.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Kanna.h; path = Sources/Kanna/Kanna.h; sourceTree = "<group>"; };
+		3217AC97D262D61964553AA2FD50F832 /* Pods-iTunesLyricTests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-iTunesLyricTests-frameworks.sh"; sourceTree = "<group>"; };
+		349C621B06592780F4D407EF354815EF /* Kanna-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Kanna-umbrella.h"; sourceTree = "<group>"; };
+		3C21EE5B7543BD2A57B3977299689152 /* Pods-iTunesLyricUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-iTunesLyricUITests.release.xcconfig"; sourceTree = "<group>"; };
+		3F9AE44D1563D5B5DB13234EC2F11195 /* Pods-iTunesLyricUITests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-iTunesLyricUITests-dummy.m"; sourceTree = "<group>"; };
+		45C07A5BB7A061079B0F8D962605AFA5 /* Pods-iTunesLyricTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-iTunesLyricTests.debug.xcconfig"; sourceTree = "<group>"; };
+		494040FE7F3DD2126E2AD3C3F70C899D /* Pods-iTunesLyric-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-iTunesLyric-acknowledgements.markdown"; sourceTree = "<group>"; };
+		49882C340E72C2070972AC88A2BFE15B /* Pods-iTunesLyricTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-iTunesLyricTests.release.xcconfig"; sourceTree = "<group>"; };
+		4C4C75A336400086920981250C75BA60 /* Pods-iTunesLyricTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-iTunesLyricTests-acknowledgements.plist"; sourceTree = "<group>"; };
+		533EF471DEF73B1BAA165B447BDECA85 /* libxmlHTMLNode.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = libxmlHTMLNode.swift; path = Sources/Kanna/libxmlHTMLNode.swift; sourceTree = "<group>"; };
+		57144CBD5580B851EF8F7CFAA734AFE0 /* Pods-iTunesLyric-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-iTunesLyric-resources.sh"; sourceTree = "<group>"; };
+		59422580054EB5B9BB3DE31574FBC5EE /* Pods-iTunesLyricUITests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-iTunesLyricUITests.modulemap"; sourceTree = "<group>"; };
+		5DB7D83A8ABF0AAD94075AFE8CFAEA59 /* Pods-iTunesLyricTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-iTunesLyricTests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		63C674D3DC6902A5857B789855BC4DFD /* Pods-iTunesLyricTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-iTunesLyricTests-umbrella.h"; sourceTree = "<group>"; };
+		678B09963E5921A05F9E798506FA444D /* Pods-iTunesLyricUITests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-iTunesLyricUITests-umbrella.h"; sourceTree = "<group>"; };
+		6A0D5138F80A884FED5D0D54912ADDD4 /* Pods-iTunesLyric-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-iTunesLyric-frameworks.sh"; sourceTree = "<group>"; };
+		6BC5471F9D423F18D2A569CCA6260FCD /* Pods_iTunesLyricUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_iTunesLyricUITests.framework; path = "Pods-iTunesLyricUITests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		714B0F54E87FD450F287E216B164791B /* CSS.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CSS.swift; path = Sources/Kanna/CSS.swift; sourceTree = "<group>"; };
+		7B64C5DECD69B18099E628CA43E98F11 /* Pods-iTunesLyric-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-iTunesLyric-acknowledgements.plist"; sourceTree = "<group>"; };
+		7CDA93FA6AAD32ABA119D42C75DEE79C /* Pods-iTunesLyricUITests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-iTunesLyricUITests-resources.sh"; sourceTree = "<group>"; };
+		868E84C6C7BD431BCC2F1FCB49445351 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8B2D4C131A29594A72BD65842BCEEAD9 /* Pods-iTunesLyricUITests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-iTunesLyricUITests-frameworks.sh"; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		A91EEFFEC5C5AE07F51850BA7C509F3D /* Pods-iTunesLyricTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-iTunesLyricTests.modulemap"; sourceTree = "<group>"; };
+		ADA15C31DA481B7DA8ACE84EA931FE8D /* Kanna-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Kanna-prefix.pch"; sourceTree = "<group>"; };
+		ADB1B2A10CD6FD3EC3E960A4C0C06EBD /* Kanna.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Kanna.xcconfig; sourceTree = "<group>"; };
+		B7B6D38A36580A05D39E99551CC6752E /* Kanna.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Kanna.swift; path = Sources/Kanna/Kanna.swift; sourceTree = "<group>"; };
+		B8F51B4C6185C946595BB8EA408F96D7 /* Kanna.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = Kanna.modulemap; sourceTree = "<group>"; };
+		C10F9A09FAF73194E4A1FAE207A0BC84 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C2DFEB796926317B8FA9A787FB5E03FD /* Pods-iTunesLyric.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-iTunesLyric.debug.xcconfig"; sourceTree = "<group>"; };
+		C4733BFA23A2BB0FC9FDEEE23EAB7352 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D351F5BDA7C630DBFAD9F6041101EB19 /* Pods-iTunesLyricTests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-iTunesLyricTests-resources.sh"; sourceTree = "<group>"; };
+		D4A2107A8B2DF250FBA39496F46A2F67 /* Pods-iTunesLyricTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-iTunesLyricTests-dummy.m"; sourceTree = "<group>"; };
+		D6934649A3E842D8E39B9A0D0F59DBA2 /* Pods-iTunesLyric.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-iTunesLyric.modulemap"; sourceTree = "<group>"; };
+		DBB1380366B4DACFC1C542F4C2D11D6E /* Pods-iTunesLyricUITests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-iTunesLyricUITests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		E040D43135A5A6C37004F1BBF4C49942 /* libxmlHTMLDocument.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = libxmlHTMLDocument.swift; path = Sources/Kanna/libxmlHTMLDocument.swift; sourceTree = "<group>"; };
+		E3126B399F27631599495DD5EB0617CD /* Pods_iTunesLyric.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_iTunesLyric.framework; path = "Pods-iTunesLyric.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E4F65637342DF2FCB9CBBCAF11D2B3B5 /* Pods-iTunesLyricUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-iTunesLyricUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		E773DB4BA0F7ED0C94EAFA8C0ED2DAD8 /* Kanna-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Kanna-dummy.m"; sourceTree = "<group>"; };
+		F1AEC80729146104C7E5AB01EF5BB43F /* Pods-iTunesLyricUITests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-iTunesLyricUITests-acknowledgements.plist"; sourceTree = "<group>"; };
+		F8E4223C5492C7337989A3732354A553 /* Pods-iTunesLyric-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-iTunesLyric-dummy.m"; sourceTree = "<group>"; };
+		FAA832774AEE5B7101BCEB7EE60FD93E /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		56C2772FBF02120CA524F91B20C431FA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1BC3D304D6D2CD36AD7E4DF20E3ACDBC /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6BA416E01BDCE4AB674FB6CA0A9D7360 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E19BE6C403A3ECD042EE34C246261F3D /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		776B44BA36DD11256A29244A87898E83 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9E19069796EFAD55C22AFB1EA7F86572 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B52790A4CFBE5CE5512A14129BD6807F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2ADED6E9AA9A2F6FF378960A9C51CF38 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		04C068A18C5413F804A2959126093416 /* OS X */ = {
+			isa = PBXGroup;
+			children = (
+				270DD1219F1E6CF00379D39F252D87C6 /* Cocoa.framework */,
+			);
+			name = "OS X";
+			sourceTree = "<group>";
+		};
+		0B2A79FB1A0189C35E82956502701321 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				45BD653DF89182FEA0B12AF0477F654C /* Kanna */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		2B0656BF2976E89BA0EE5AA6CF7092CF /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				868E84C6C7BD431BCC2F1FCB49445351 /* Info.plist */,
+				B8F51B4C6185C946595BB8EA408F96D7 /* Kanna.modulemap */,
+				ADB1B2A10CD6FD3EC3E960A4C0C06EBD /* Kanna.xcconfig */,
+				E773DB4BA0F7ED0C94EAFA8C0ED2DAD8 /* Kanna-dummy.m */,
+				ADA15C31DA481B7DA8ACE84EA931FE8D /* Kanna-prefix.pch */,
+				349C621B06592780F4D407EF354815EF /* Kanna-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Kanna";
+			sourceTree = "<group>";
+		};
+		39E9EE8210D861DFD82346C1F5EB7218 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				04C068A18C5413F804A2959126093416 /* OS X */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		42DABFB3C1849F87470E6EC753E7AFBF /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				8F74F7436D9963447CA2AC6E40696BF6 /* Pods-iTunesLyric */,
+				F8DFC97FC9AC88273D40F1C9A644633D /* Pods-iTunesLyricTests */,
+				D5C060EB7CAB686B5CFE388C00DB5BE4 /* Pods-iTunesLyricUITests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		45BD653DF89182FEA0B12AF0477F654C /* Kanna */ = {
+			isa = PBXGroup;
+			children = (
+				714B0F54E87FD450F287E216B164791B /* CSS.swift */,
+				2C01807B7A740FB509C0A5BC9E2FB597 /* Kanna.h */,
+				B7B6D38A36580A05D39E99551CC6752E /* Kanna.swift */,
+				E040D43135A5A6C37004F1BBF4C49942 /* libxmlHTMLDocument.swift */,
+				533EF471DEF73B1BAA165B447BDECA85 /* libxmlHTMLNode.swift */,
+				1ED7164FE687D5C00EFF2F075A8A22F5 /* libxmlParserOption.swift */,
+				2B0656BF2976E89BA0EE5AA6CF7092CF /* Support Files */,
+			);
+			name = Kanna;
+			path = Kanna;
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				39E9EE8210D861DFD82346C1F5EB7218 /* Frameworks */,
+				0B2A79FB1A0189C35E82956502701321 /* Pods */,
+				D6B85A5536421CCC74F7BAF971451A18 /* Products */,
+				42DABFB3C1849F87470E6EC753E7AFBF /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		8F74F7436D9963447CA2AC6E40696BF6 /* Pods-iTunesLyric */ = {
+			isa = PBXGroup;
+			children = (
+				C4733BFA23A2BB0FC9FDEEE23EAB7352 /* Info.plist */,
+				D6934649A3E842D8E39B9A0D0F59DBA2 /* Pods-iTunesLyric.modulemap */,
+				494040FE7F3DD2126E2AD3C3F70C899D /* Pods-iTunesLyric-acknowledgements.markdown */,
+				7B64C5DECD69B18099E628CA43E98F11 /* Pods-iTunesLyric-acknowledgements.plist */,
+				F8E4223C5492C7337989A3732354A553 /* Pods-iTunesLyric-dummy.m */,
+				6A0D5138F80A884FED5D0D54912ADDD4 /* Pods-iTunesLyric-frameworks.sh */,
+				57144CBD5580B851EF8F7CFAA734AFE0 /* Pods-iTunesLyric-resources.sh */,
+				1B92690FF19DBECDEC955604E51BA9EB /* Pods-iTunesLyric-umbrella.h */,
+				C2DFEB796926317B8FA9A787FB5E03FD /* Pods-iTunesLyric.debug.xcconfig */,
+				0E32186615C9443F6A3E8621C5C53784 /* Pods-iTunesLyric.release.xcconfig */,
+			);
+			name = "Pods-iTunesLyric";
+			path = "Target Support Files/Pods-iTunesLyric";
+			sourceTree = "<group>";
+		};
+		D5C060EB7CAB686B5CFE388C00DB5BE4 /* Pods-iTunesLyricUITests */ = {
+			isa = PBXGroup;
+			children = (
+				FAA832774AEE5B7101BCEB7EE60FD93E /* Info.plist */,
+				59422580054EB5B9BB3DE31574FBC5EE /* Pods-iTunesLyricUITests.modulemap */,
+				DBB1380366B4DACFC1C542F4C2D11D6E /* Pods-iTunesLyricUITests-acknowledgements.markdown */,
+				F1AEC80729146104C7E5AB01EF5BB43F /* Pods-iTunesLyricUITests-acknowledgements.plist */,
+				3F9AE44D1563D5B5DB13234EC2F11195 /* Pods-iTunesLyricUITests-dummy.m */,
+				8B2D4C131A29594A72BD65842BCEEAD9 /* Pods-iTunesLyricUITests-frameworks.sh */,
+				7CDA93FA6AAD32ABA119D42C75DEE79C /* Pods-iTunesLyricUITests-resources.sh */,
+				678B09963E5921A05F9E798506FA444D /* Pods-iTunesLyricUITests-umbrella.h */,
+				E4F65637342DF2FCB9CBBCAF11D2B3B5 /* Pods-iTunesLyricUITests.debug.xcconfig */,
+				3C21EE5B7543BD2A57B3977299689152 /* Pods-iTunesLyricUITests.release.xcconfig */,
+			);
+			name = "Pods-iTunesLyricUITests";
+			path = "Target Support Files/Pods-iTunesLyricUITests";
+			sourceTree = "<group>";
+		};
+		D6B85A5536421CCC74F7BAF971451A18 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2B5ECC8F395C65A22676FC64EFC0F1E6 /* Kanna.framework */,
+				E3126B399F27631599495DD5EB0617CD /* Pods_iTunesLyric.framework */,
+				28B1C8D986B0FB7F9B4ACF3A7B30B753 /* Pods_iTunesLyricTests.framework */,
+				6BC5471F9D423F18D2A569CCA6260FCD /* Pods_iTunesLyricUITests.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F8DFC97FC9AC88273D40F1C9A644633D /* Pods-iTunesLyricTests */ = {
+			isa = PBXGroup;
+			children = (
+				C10F9A09FAF73194E4A1FAE207A0BC84 /* Info.plist */,
+				A91EEFFEC5C5AE07F51850BA7C509F3D /* Pods-iTunesLyricTests.modulemap */,
+				5DB7D83A8ABF0AAD94075AFE8CFAEA59 /* Pods-iTunesLyricTests-acknowledgements.markdown */,
+				4C4C75A336400086920981250C75BA60 /* Pods-iTunesLyricTests-acknowledgements.plist */,
+				D4A2107A8B2DF250FBA39496F46A2F67 /* Pods-iTunesLyricTests-dummy.m */,
+				3217AC97D262D61964553AA2FD50F832 /* Pods-iTunesLyricTests-frameworks.sh */,
+				D351F5BDA7C630DBFAD9F6041101EB19 /* Pods-iTunesLyricTests-resources.sh */,
+				63C674D3DC6902A5857B789855BC4DFD /* Pods-iTunesLyricTests-umbrella.h */,
+				45C07A5BB7A061079B0F8D962605AFA5 /* Pods-iTunesLyricTests.debug.xcconfig */,
+				49882C340E72C2070972AC88A2BFE15B /* Pods-iTunesLyricTests.release.xcconfig */,
+			);
+			name = "Pods-iTunesLyricTests";
+			path = "Target Support Files/Pods-iTunesLyricTests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		A3CA17BFDDB0A81444254ACD04D49309 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				322F32F75AC8A04064F70A089800AF88 /* Kanna-umbrella.h in Headers */,
+				436871564BF1C99AA86206B69CDB40DD /* Kanna.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DC0A32DBB5AF35E57971EE1A4D660465 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8773CAB7F6465EDE0DFD59AF18174E47 /* Pods-iTunesLyricTests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E72FB2369EFD31F5D6B9FEE4F6D684E1 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				58EEED432F39D40CAA1C1FAB0D38D3F7 /* Pods-iTunesLyric-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EB14B1C3FDEC059D888FB512F0F4AB3C /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DB097178805AA93516DAF73B26CA88EE /* Pods-iTunesLyricUITests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		4D10E4FF5A483B852B47CCA0B994E340 /* Kanna */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 032FE6A4FF03E43B2C60899A35389C7F /* Build configuration list for PBXNativeTarget "Kanna" */;
+			buildPhases = (
+				252B13ABC5AE0EA65897098097C1703E /* Sources */,
+				56C2772FBF02120CA524F91B20C431FA /* Frameworks */,
+				A3CA17BFDDB0A81444254ACD04D49309 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Kanna;
+			productName = Kanna;
+			productReference = 2B5ECC8F395C65A22676FC64EFC0F1E6 /* Kanna.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		7EFC5A4009569DA10537E716D8AD9B78 /* Pods-iTunesLyricUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 60011996B62A5875B3B24ABE427EAD5F /* Build configuration list for PBXNativeTarget "Pods-iTunesLyricUITests" */;
+			buildPhases = (
+				F4CE40D54B573D721F03545EBE2EBECF /* Sources */,
+				6BA416E01BDCE4AB674FB6CA0A9D7360 /* Frameworks */,
+				EB14B1C3FDEC059D888FB512F0F4AB3C /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-iTunesLyricUITests";
+			productName = "Pods-iTunesLyricUITests";
+			productReference = 6BC5471F9D423F18D2A569CCA6260FCD /* Pods_iTunesLyricUITests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		91DB3C19698DBF041747A030656F54F9 /* Pods-iTunesLyricTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 992D3E8E307341B507A623545F47CA03 /* Build configuration list for PBXNativeTarget "Pods-iTunesLyricTests" */;
+			buildPhases = (
+				680EFB7D23B07C3AB1AE83A7C4F6BC44 /* Sources */,
+				776B44BA36DD11256A29244A87898E83 /* Frameworks */,
+				DC0A32DBB5AF35E57971EE1A4D660465 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-iTunesLyricTests";
+			productName = "Pods-iTunesLyricTests";
+			productReference = 28B1C8D986B0FB7F9B4ACF3A7B30B753 /* Pods_iTunesLyricTests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		FE88658EE774F6ED2C078315346C2C66 /* Pods-iTunesLyric */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B8E9866A54307E26CC6462B65001D772 /* Build configuration list for PBXNativeTarget "Pods-iTunesLyric" */;
+			buildPhases = (
+				B4ADFE67B9E29FE150096EC55C2ECCB5 /* Sources */,
+				B52790A4CFBE5CE5512A14129BD6807F /* Frameworks */,
+				E72FB2369EFD31F5D6B9FEE4F6D684E1 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CADFF479ACB0424702A40749CA15A6B3 /* PBXTargetDependency */,
+			);
+			name = "Pods-iTunesLyric";
+			productName = "Pods-iTunesLyric";
+			productReference = E3126B399F27631599495DD5EB0617CD /* Pods_iTunesLyric.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0700;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = D6B85A5536421CCC74F7BAF971451A18 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4D10E4FF5A483B852B47CCA0B994E340 /* Kanna */,
+				FE88658EE774F6ED2C078315346C2C66 /* Pods-iTunesLyric */,
+				91DB3C19698DBF041747A030656F54F9 /* Pods-iTunesLyricTests */,
+				7EFC5A4009569DA10537E716D8AD9B78 /* Pods-iTunesLyricUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		252B13ABC5AE0EA65897098097C1703E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AF863C36D259D89189A0BDF54912C76E /* CSS.swift in Sources */,
+				3DB400D8B8AADDF43E1439E3441E814B /* Kanna-dummy.m in Sources */,
+				634F01C0D06986FD15F647234ADA7CBC /* Kanna.swift in Sources */,
+				781A4D12CC4A83EA4705C6029254B012 /* libxmlHTMLDocument.swift in Sources */,
+				08700CBB713B443AFA394EFD6B74E402 /* libxmlHTMLNode.swift in Sources */,
+				FD87F8764674EFAAF3AABCA2552E5127 /* libxmlParserOption.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		680EFB7D23B07C3AB1AE83A7C4F6BC44 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				500BFA7CD11C56710C35F7B8199F2A8B /* Pods-iTunesLyricTests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B4ADFE67B9E29FE150096EC55C2ECCB5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D76F5C7AAB92583AC86B89669EB1F503 /* Pods-iTunesLyric-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F4CE40D54B573D721F03545EBE2EBECF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FEB8B7970557E23C1C32C7B5D0E2753D /* Pods-iTunesLyricUITests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CADFF479ACB0424702A40749CA15A6B3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Kanna;
+			target = 4D10E4FF5A483B852B47CCA0B994E340 /* Kanna */;
+			targetProxy = 986282389A8468292D60562E139BE636 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		0385DE5BC6BBDA2B205FFAB49394B17D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 45C07A5BB7A061079B0F8D962605AFA5 /* Pods-iTunesLyricTests.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_VERSION = A;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-iTunesLyricTests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MODULEMAP_FILE = "Target Support Files/Pods-iTunesLyricTests/Pods-iTunesLyricTests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_iTunesLyricTests;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		334EC79CFDCF16BDA72B7E1749EB6B13 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E4F65637342DF2FCB9CBBCAF11D2B3B5 /* Pods-iTunesLyricUITests.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_VERSION = A;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-iTunesLyricUITests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MODULEMAP_FILE = "Target Support Files/Pods-iTunesLyricUITests/Pods-iTunesLyricUITests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_iTunesLyricUITests;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		34342BBF37D3A9ED85FF2EB654934920 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		36BCAFF8E038C20F23E4A3F24AF4E592 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3C21EE5B7543BD2A57B3977299689152 /* Pods-iTunesLyricUITests.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_VERSION = A;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-iTunesLyricUITests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MODULEMAP_FILE = "Target Support Files/Pods-iTunesLyricUITests/Pods-iTunesLyricUITests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_iTunesLyricUITests;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		517AC3128E983C4C6D8EBF597680228C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 49882C340E72C2070972AC88A2BFE15B /* Pods-iTunesLyricTests.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_VERSION = A;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-iTunesLyricTests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MODULEMAP_FILE = "Target Support Files/Pods-iTunesLyricTests/Pods-iTunesLyricTests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_iTunesLyricTests;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		66FE08796BADE37EFB0DE07E0564B394 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = ADB1B2A10CD6FD3EC3E960A4C0C06EBD /* Kanna.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_VERSION = A;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Kanna/Kanna-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Kanna/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MODULEMAP_FILE = "Target Support Files/Kanna/Kanna.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = Kanna;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		6E3C5C61EF695C2BBF642AB45E38E186 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C2DFEB796926317B8FA9A787FB5E03FD /* Pods-iTunesLyric.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_VERSION = A;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-iTunesLyric/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MODULEMAP_FILE = "Target Support Files/Pods-iTunesLyric/Pods-iTunesLyric.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_iTunesLyric;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		AB80895BC7FC7547284B7052278175B8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = ADB1B2A10CD6FD3EC3E960A4C0C06EBD /* Kanna.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_VERSION = A;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Kanna/Kanna-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Kanna/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MODULEMAP_FILE = "Target Support Files/Kanna/Kanna.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = Kanna;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		D79EC42A645A0BE5348797A32E0ADEE3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0E32186615C9443F6A3E8621C5C53784 /* Pods-iTunesLyric.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_VERSION = A;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-iTunesLyric/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MODULEMAP_FILE = "Target Support Files/Pods-iTunesLyric/Pods-iTunesLyric.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_iTunesLyric;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		F6FC88CB717F413199C282718D2DC09F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		032FE6A4FF03E43B2C60899A35389C7F /* Build configuration list for PBXNativeTarget "Kanna" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AB80895BC7FC7547284B7052278175B8 /* Debug */,
+				66FE08796BADE37EFB0DE07E0564B394 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				34342BBF37D3A9ED85FF2EB654934920 /* Debug */,
+				F6FC88CB717F413199C282718D2DC09F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		60011996B62A5875B3B24ABE427EAD5F /* Build configuration list for PBXNativeTarget "Pods-iTunesLyricUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				334EC79CFDCF16BDA72B7E1749EB6B13 /* Debug */,
+				36BCAFF8E038C20F23E4A3F24AF4E592 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		992D3E8E307341B507A623545F47CA03 /* Build configuration list for PBXNativeTarget "Pods-iTunesLyricTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0385DE5BC6BBDA2B205FFAB49394B17D /* Debug */,
+				517AC3128E983C4C6D8EBF597680228C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B8E9866A54307E26CC6462B65001D772 /* Build configuration list for PBXNativeTarget "Pods-iTunesLyric" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6E3C5C61EF695C2BBF642AB45E38E186 /* Debug */,
+				D79EC42A645A0BE5348797A32E0ADEE3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}

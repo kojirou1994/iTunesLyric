@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+/*
 public protocol LyricRepresentable {
 	
 	func lyric(by mileSecond: Int) -> String
@@ -23,3 +23,4 @@ extension LyricRepresentable {
 	}
 	
 }
+*/

@@ -8,6 +8,8 @@
 
 import Foundation
 
+public typealias SFPlainLyric = [String]
+/*
 public struct SFPlainLyric: LyricRepresentable {
 	
 	public var lyrics: [String]
@@ -21,3 +23,4 @@ public struct SFPlainLyric: LyricRepresentable {
 	}
 	
 }
+*/

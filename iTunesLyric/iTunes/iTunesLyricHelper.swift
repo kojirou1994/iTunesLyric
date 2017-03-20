@@ -10,17 +10,19 @@ import Foundation
 
 typealias FetchLyricListCompletion = ([Any]) -> Void
 
-typealias FetchLyricCompletion = (LyricRepresentable?) -> Void
+typealias FetchLyricCompletion = (FetchLyricResult) -> Void
+
+enum FetchLyricResult {
+	case success(SFLyric)
+	case failed
+}
 
 class iTunesLyricHelper {
     
     var requestsDict = Dictionary<String, URLRequest>()
     
     static var shared = iTunesLyricHelper()
-    
-    /**
-     根据iTunes歌曲信息智能获取歌词
-     */
+
     func smartFetchLyric(with song: Song, completion: @escaping FetchLyricCompletion) {
         if readSongLyricFromLocal(song: song) {
 //            completion(song)
@@ -34,7 +36,7 @@ class iTunesLyricHelper {
         request.setValue(ENET_COOKIE, forHTTPHeaderField: "Cookie")
         request.setValue(ENET_UA, forHTTPHeaderField: "User-Agent")
         request.httpMethod = "POST"
-        request.httpBody = SearchQuery(key: song.title).httpBody
+        request.httpBody = NeteaseSearchQuery(key: song.title).httpBody
         
 //        requestsDict[key] = request
         
@@ -49,12 +51,6 @@ class iTunesLyricHelper {
                 return
             }
             if let target = songs.first(where: { self.validateArtist(l: $0["artists"].arrayObject?.first?["name"].string, r: song.artist) }) {
-				print("Smart Response OK")
-				/*
-				let song = Song(title: target["name"].stringValue, artist: target["artists"].arrayObject?.first(where: {
-				$0["name"].string != nil
-				})?["name"].string ?? "", album: target["album"]["name"].stringValue, neteaseId: target["id"].intValue)!
-				*/
 				song.neteaseId = target["id"].intValue
 				print("Got Netease MusicID \(song.neteaseId)")
 				self.fetchLyric(with: song, completion: completion)
@@ -189,7 +185,7 @@ class iTunesLyricHelper {
                 print("\(song.filename), 找到正确的歌词信息")
                 let lrc = SFLyricParser.parse(lyric: lyric)
 //                print(lyric)
-                completion(lrc)
+                completion(.success(lrc))
 			} else {
 //				print(String.init(data: data, encoding: .utf8))
 			}
@@ -237,7 +233,7 @@ class iTunesLyricHelper {
         let filename = "\(song.filename).li"
         lyricPath = (lyricPath as NSString).appendingPathComponent(filename)
         let dict = NSMutableDictionary()
-        dict.setValue(song.neteaseId, forKey: "lyricId")
+//        dict.setValue(song.neteaseId, forKey: "lyricId")
 //        dict.setValue(song.lyrics, forKey: "lyrics")
         
         dict.write(toFile: lyricPath, atomically: true)
@@ -251,7 +247,7 @@ class iTunesLyricHelper {
         let filename = "\(song.filename).li"
         lyricPath = (lyricPath as NSString).appendingPathComponent(filename)
         if let dic = NSDictionary(contentsOfFile: lyricPath) {
-            song.neteaseId = dic.object(forKey: "lyricId") as! Int
+//            song.neteaseId = dic.object(forKey: "lyricId") as! Int
 //            song.lyrics = dic["lyrics"] as? String
             return true
         }
