@@ -50,7 +50,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         prefWindow.appearance = NSAppearance(named: NSAppearanceNameVibrantDark)
 
 //        [self.updater checkForUpdatesInBackground];
-
+		iTunesLyricHelper.shared.delegate = self
         // init itunes playing state
         if itunes.playerState! == iTunesEPlS.Playing {
             initTimer()
@@ -59,18 +59,19 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 print("Song Not Nil")
                 lyricWindow.lyric = "\(song!.filename)"
 				lyric = nil
-                iTunesLyricHelper.shared.smartFetchLyric(with: song!, completion: { result in
-					switch result {
-					case .success(let lyric):
-						self.lyric = lyric
-						if self.itunes.currentTrack?.lyrics == nil || self.itunes.currentTrack?.lyrics == "" {
-							self.itunes.currentTrack?.setLyrics?(lyric.lyric)
-						}
-					case .failed:
-						self.lyric = nil
-						
-					}
-                })
+//                iTunesLyricHelper.shared.smartFetchLyric(with: song!, completion: { result in
+//					switch result {
+//					case .success(let lyric):
+//						self.lyric = lyric
+//						if self.itunes.currentTrack?.lyrics == nil || self.itunes.currentTrack?.lyrics == "" {
+//							self.itunes.currentTrack?.setLyrics?(lyric.lyric)
+//						}
+//					case .failed:
+//						self.lyric = nil
+//						
+//					}
+//                })
+				iTunesLyricHelper.shared.tryEveryServer(song: song!)
             } else {
                 print("Song Nil")
                 lyricWindow.lyric = "没有检测到歌曲信息"
@@ -295,7 +296,7 @@ extension AppDelegate {
             return nil
         }
         print("Got Track Info")
-        return Song(title: track.name!, artist: track.artist!, album: track.album!)
+        return Song(title: track.name!, artist: track.artist!/*, album: track.album!*/)
     }
 
     func updateTrackInfo(notification: NSNotification) {
@@ -315,20 +316,20 @@ extension AppDelegate {
                     lyricWindow.lyric = "没有检测到歌曲信息"
                 }
 				lyric = nil
-                iTunesLyricHelper.shared.smartFetchLyric(with: song!, completion: { result in
-//                    self.iTunesLyricFetchFinished(song: $0!)
-					switch result {
-					case .success(let lyric):
-						self.lyric = lyric
-						if self.itunes.currentTrack?.lyrics == nil || self.itunes.currentTrack?.lyrics == "" {
-							self.itunes.currentTrack?.setLyrics?(lyric.lyric)
-						}
-					case .failed:
-						self.lyric = nil
-						
-					}
-                })
-                
+//                iTunesLyricHelper.shared.smartFetchLyric(with: song!, completion: { result in
+////                    self.iTunesLyricFetchFinished(song: $0!)
+//					switch result {
+//					case .success(let lyric):
+//						self.lyric = lyric
+//						if self.itunes.currentTrack?.lyrics == nil || self.itunes.currentTrack?.lyrics == "" {
+//							self.itunes.currentTrack?.setLyrics?(lyric.lyric)
+//						}
+//					case .failed:
+//						self.lyric = nil
+//						
+//					}
+//                })
+				iTunesLyricHelper.shared.tryEveryServer(song: song!)
                 if !lyricWindow.isVisible {
                     lyricWindow.lyric = ""
                     lyricWindow.makeKeyAndOrderFront(nil)
@@ -345,18 +346,19 @@ extension AppDelegate {
         self.lyric = nil
         if song != nil {
             lyricWindow.lyric = "\(song!.filename)"
-            iTunesLyricHelper.shared.smartFetchLyric(with: song!, completion: { result in
-				switch result {
-				case .success(let lyric):
-					self.lyric = lyric
-					if self.itunes.currentTrack?.lyrics == nil || self.itunes.currentTrack?.lyrics == "" {
-						self.itunes.currentTrack?.setLyrics?(lyric.lyric)
-					}
-				case .failed:
-					self.lyric = nil
-					
-				}
-            })
+//            iTunesLyricHelper.shared.smartFetchLyric(with: song!, completion: { result in
+//				switch result {
+//				case .success(let lyric):
+//					self.lyric = lyric
+//					if self.itunes.currentTrack?.lyrics == nil || self.itunes.currentTrack?.lyrics == "" {
+//						self.itunes.currentTrack?.setLyrics?(lyric.lyric)
+//					}
+//				case .failed:
+//					self.lyric = nil
+//					
+//				}
+//            })
+			iTunesLyricHelper.shared.tryEveryServer(song: song!)
         } else {
             lyricWindow.lyric = "没有检测到歌曲信息"
         }
@@ -519,4 +521,38 @@ extension AppDelegate {
             lyricWindow.lyric = lyric
         }
     }
+}
+
+extension AppDelegate: iTunesLyricHelperDelegate {
+	func didGetLyric(forSong song: Song, lyrics: [SFLyric]) {
+		guard song === self.song else {
+			return
+		}
+		var plainSetted = false
+		var lrcSetted = false
+		for lyric in lyrics {
+			if plainSetted && lrcSetted {
+				break
+			}
+			switch lyric {
+			case .plain(_):
+				if !plainSetted {
+					self.itunes.currentTrack?.setLyrics?(lyric.lyric)
+					plainSetted = true
+				}
+			case .lrc(let lrc):
+				self.lyric = lyric
+				lrcSetted = true
+				if !plainSetted {
+					self.itunes.currentTrack?.setLyrics?(lyric.lyric)
+					plainSetted = true
+				}
+			default:
+				break
+			}
+		}
+		if !lrcSetted {
+			self.lyric = nil
+		}
+	}
 }

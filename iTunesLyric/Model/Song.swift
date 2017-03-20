@@ -20,10 +20,8 @@ open class Song {
         guard title.characters.count != 0 else {
             return nil
         }
-//        self.album = album
         self.artist = artist
         self.title = title.components(separatedBy: "(")[0]
-//        self.neteaseId = neteaseId
     }
 }
 

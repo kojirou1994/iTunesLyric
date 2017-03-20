@@ -17,21 +17,46 @@ enum FetchLyricResult {
 	case failed
 }
 
+protocol iTunesLyricHelperDelegate: class {
+	func didGetLyric(forSong song: Song, lyrics: [SFLyric])
+}
+
 class iTunesLyricHelper {
     
-    var requestsDict = Dictionary<String, URLRequest>()
-    
-    static var shared = iTunesLyricHelper()
+    static let shared = iTunesLyricHelper()
 
+	var currentServers: [LyricSearchable] = [KgetLyric(), NeteaseLyricServer()]
+	weak var delegate: iTunesLyricHelperDelegate?
+	var currentSong: Song?
+	var currentResults: [SFLyric] = []
+	var serverStatus: [ServerStatus] = []
+	
+	enum ServerStatus {
+		case waiting, success, failure
+	}
+	func tryEveryServer(song: Song) {
+		currentSong = song
+		currentResults = [SFLyric](repeating: .none, count: currentServers.count)
+		serverStatus = [ServerStatus](repeating: .waiting, count: currentServers.count)
+		for index in 0..<currentServers.count {
+			currentServers[index].smartSearch(bySong: song, completion: { result in
+				switch result {
+				case .success(let lyric):
+					self.currentResults[index] = lyric
+					self.serverStatus[index] = .success
+				case .failure(let error):
+					self.serverStatus[index] = .failure
+				}
+				guard !self.serverStatus.contains(.waiting) else {
+					return
+				}
+				self.delegate?.didGetLyric(forSong: self.currentSong!, lyrics: self.currentResults.filter({ $0 != .none }))
+			})
+		}
+	}
+	/*
     func smartFetchLyric(with song: Song, completion: @escaping FetchLyricCompletion) {
-        if readSongLyricFromLocal(song: song) {
-//            completion(song)
-            return
-        }
-        let key = "fetchLyricWithSong-\(song.filename)"
-        if requestsDict[key] != nil {
-//            return
-        }
+
         var request = URLRequest(url: URL(string: FetchSongIDURL)!)
         request.setValue(ENET_COOKIE, forHTTPHeaderField: "Cookie")
         request.setValue(ENET_UA, forHTTPHeaderField: "User-Agent")
@@ -51,14 +76,14 @@ class iTunesLyricHelper {
                 return
             }
             if let target = songs.first(where: { self.validateArtist(l: $0["artists"].arrayObject?.first?["name"].string, r: song.artist) }) {
-				song.neteaseId = target["id"].intValue
-				print("Got Netease MusicID \(song.neteaseId)")
-				self.fetchLyric(with: song, completion: completion)
+				let neteaseId = target["id"].intValue
+				print("Got Netease ID: \(neteaseId)")
+				self.fetchLyric(withNeteaseID: neteaseId, completion: completion)
 			} else {
 				let target = songs[0]
-				song.neteaseId = target["id"].intValue
-				print("Got Netease MusicID \(song.neteaseId)")
-				self.fetchLyric(with: song, completion: completion)
+				let neteaseId = target["id"].intValue
+				print("Got Netease ID: \(neteaseId)")
+				self.fetchLyric(withNeteaseID: neteaseId, completion: completion)
 			}
 			
 			
@@ -97,7 +122,7 @@ class iTunesLyricHelper {
 //        
 //        [request startAsynchronous];
     }
-    
+    */
     /**
      根据歌曲名查询歌曲歌词列表
      */
@@ -169,9 +194,9 @@ class iTunesLyricHelper {
     /**
      根据歌曲（含有歌词id）获取歌词
      */
-    func fetchLyric(with song: Song, completion: @escaping FetchLyricCompletion) {
+    func fetchLyric(withNeteaseID id: Int, completion: @escaping FetchLyricCompletion) {
         print("Fetching Lyric")
-        var request = URLRequest(url: URL(string: "\(FetchSongLyricURL)&id=\(song.neteaseId)")!)
+        var request = URLRequest(url: URL(string: "\(FetchSongLyricURL)&id=\(id)")!)
         request.setValue("Cookie", forHTTPHeaderField: ENET_COOKIE)
         request.setValue("User-Agent", forHTTPHeaderField: ENET_UA)
 
@@ -182,7 +207,7 @@ class iTunesLyricHelper {
                 return
             }
             if let lyric = json["lrc"]["lyric"].string {
-                print("\(song.filename), 找到正确的歌词信息")
+                print("Netease ID: \(id), 找到正确的歌词信息")
                 let lrc = SFLyricParser.parse(lyric: lyric)
 //                print(lyric)
                 completion(.success(lrc))
