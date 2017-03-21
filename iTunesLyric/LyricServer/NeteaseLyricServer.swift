@@ -114,7 +114,7 @@ struct NeteaseLyricServer: LyricProvidable, LyricSearchable {
 		request.setValue(ENET_COOKIE, forHTTPHeaderField: "Cookie")
 		request.setValue(ENET_UA, forHTTPHeaderField: "User-Agent")
 		request.httpMethod = "POST"
-		request.httpBody = NeteaseSearchQuery(key: song.title).httpBody
+		request.httpBody = NeteaseSearchQuery(key: "\(song.title) \(song.artist)").httpBody
 		
 		print("Start Smart Fetch")
 		

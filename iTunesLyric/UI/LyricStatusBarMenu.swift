@@ -16,6 +16,7 @@ enum StatusBarTag: Int {
     case about
     case quit
     case checkUpdate
+	case writelyric
 }
 
 class LyricStatusBarMenu: NSObject, NSMenuDelegate, NSWindowDelegate {
@@ -66,7 +67,13 @@ class LyricStatusBarMenu: NSObject, NSMenuDelegate, NSWindowDelegate {
         newItem.target = self
         newItem.isEnabled = true
         statusMenu.addItem(newItem)
-        
+		
+		newItem = NSMenuItem(title: "写入歌词", action: #selector(LyricStatusBarMenu.showLyricWindow(item:)), keyEquivalent: "")
+		newItem.tag = StatusBarTag.writelyric.rawValue
+		newItem.target = self
+		newItem.isEnabled = true
+		statusMenu.addItem(newItem)
+		
         //    newItem = [[NSMenuItem allocWithZone: [NSMenu menuZone]] initWithTitle: @"检查更新..." action: @selector(showPreference:) keyEquivalent: @""];
         //    newItem.tag = kStatusCheckUpdateTag;
         //    [newItem setTarget: self];
@@ -117,4 +124,11 @@ class LyricStatusBarMenu: NSObject, NSMenuDelegate, NSWindowDelegate {
     func quit() {
         NSApplication.shared().terminate(nil)
     }
+	
+	var lyricWindow = LyricWriteWindowController(windowNibName: "LyricWriteWindowController")
+	
+	func showLyricWindow(item: NSMenuItem) {
+		print("Opening Lyric Write Window.")
+		lyricWindow.showWindow(self)
+	}
 }

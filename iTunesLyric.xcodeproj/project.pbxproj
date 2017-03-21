@@ -29,6 +29,8 @@
 		E349DE8E1E7F6F8B00A6D31C /* KgetLyricServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E349DE8D1E7F6F8B00A6D31C /* KgetLyricServer.swift */; };
 		E349DE901E7F6FBB00A6D31C /* SFLyric.swift in Sources */ = {isa = PBXBuildFile; fileRef = E349DE8F1E7F6FBB00A6D31C /* SFLyric.swift */; };
 		E349DE921E7F71EA00A6D31C /* NeteaseLyricServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E349DE911E7F71EA00A6D31C /* NeteaseLyricServer.swift */; };
+		E349DE951E80408E00A6D31C /* LyricWriteWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E349DE931E80408E00A6D31C /* LyricWriteWindowController.swift */; };
+		E349DE961E80408E00A6D31C /* LyricWriteWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E349DE941E80408E00A6D31C /* LyricWriteWindowController.xib */; };
 		E372F28F1D7440400048C0AB /* SFLrcLyric.swift in Sources */ = {isa = PBXBuildFile; fileRef = E372F28E1D7440400048C0AB /* SFLrcLyric.swift */; };
 		E372F2911D74408E0048C0AB /* SFLrc.swift in Sources */ = {isa = PBXBuildFile; fileRef = E372F2901D74408E0048C0AB /* SFLrc.swift */; };
 		E377E1641D77224C0008E907 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E377E1631D77224C0008E907 /* Main.storyboard */; };
@@ -93,6 +95,8 @@
 		E349DE8D1E7F6F8B00A6D31C /* KgetLyricServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KgetLyricServer.swift; sourceTree = "<group>"; };
 		E349DE8F1E7F6FBB00A6D31C /* SFLyric.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SFLyric.swift; sourceTree = "<group>"; };
 		E349DE911E7F71EA00A6D31C /* NeteaseLyricServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NeteaseLyricServer.swift; sourceTree = "<group>"; };
+		E349DE931E80408E00A6D31C /* LyricWriteWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LyricWriteWindowController.swift; sourceTree = "<group>"; };
+		E349DE941E80408E00A6D31C /* LyricWriteWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LyricWriteWindowController.xib; sourceTree = "<group>"; };
 		E372F28E1D7440400048C0AB /* SFLrcLyric.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SFLrcLyric.swift; sourceTree = "<group>"; };
 		E372F2901D74408E0048C0AB /* SFLrc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SFLrc.swift; sourceTree = "<group>"; };
 		E377E1631D77224C0008E907 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -210,6 +214,8 @@
 			isa = PBXGroup;
 			children = (
 				E31C3FB11D6F57B900A8FCD2 /* LyricStatusBarMenu.swift */,
+				E349DE931E80408E00A6D31C /* LyricWriteWindowController.swift */,
+				E349DE941E80408E00A6D31C /* LyricWriteWindowController.xib */,
 				E31C3FBC1D7025AE00A8FCD2 /* LyricDisplayWindow.swift */,
 				E31C3FBE1D70261D00A8FCD2 /* InnerView.swift */,
 				E31C3FC21D70808600A8FCD2 /* Constant.swift */,
@@ -404,6 +410,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E377E1641D77224C0008E907 /* Main.storyboard in Resources */,
+				E349DE961E80408E00A6D31C /* LyricWriteWindowController.xib in Resources */,
 				E31C3F8A1D6F567F00A8FCD2 /* Assets.xcassets in Resources */,
 				E31C3F8D1D6F567F00A8FCD2 /* MainMenu.xib in Resources */,
 			);
@@ -578,6 +585,7 @@
 				E3AF3D011DF55D56007D6ADD /* LyricRepresentable.swift in Sources */,
 				E349DE901E7F6FBB00A6D31C /* SFLyric.swift in Sources */,
 				E349DE921E7F71EA00A6D31C /* NeteaseLyricServer.swift in Sources */,
+				E349DE951E80408E00A6D31C /* LyricWriteWindowController.swift in Sources */,
 				E31C3FC11D702C0600A8FCD2 /* Util.swift in Sources */,
 				E3C678621D730EFB0046110D /* SFJSON.swift in Sources */,
 				E3AF3D031DF55EDE007D6ADD /* SFPlainLyric.swift in Sources */,

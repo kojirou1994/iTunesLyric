@@ -29,8 +29,6 @@ public protocol LyricProvidable: CustomStringConvertible {
 	
 	associatedtype SearchResult: ResultRepresentable
 	
-	var smartFilter: ((Song, [SearchResult]) -> SearchResult)? { set get }
-	
 	func search(bySong song: Song, completion: @escaping (Result<[SearchResult]>) -> Void) throws
 	
 	func parse(result: SearchResult, completion: @escaping (Result<SFLyric>) -> Void) throws
@@ -38,17 +36,6 @@ public protocol LyricProvidable: CustomStringConvertible {
 }
 
 extension LyricProvidable {
-	/*
-	var smartFilter: ((Song, [SearchResult]) -> SearchResult)? {
-		return { (song: Song, results: [SearchResult]) -> SearchResult in
-			if let target = results.first(where: { validateArtist(l: $0["artists"].arrayObject?.first?["name"].string, r: song.artist) }) {
-				return target
-			} else {
-				return results[0]
-			}
-		}
-	}
-	*/
 	
 	public func filteredNilString(_ input: SFPlainLyric) -> SFPlainLyric {
 		var result = input

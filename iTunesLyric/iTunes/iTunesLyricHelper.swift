@@ -7,15 +7,7 @@
 //
 
 import Foundation
-
-typealias FetchLyricListCompletion = ([Any]) -> Void
-
-typealias FetchLyricCompletion = (FetchLyricResult) -> Void
-
-enum FetchLyricResult {
-	case success(SFLyric)
-	case failed
-}
+import Dispatch
 
 protocol iTunesLyricHelperDelegate: class {
 	func didGetLyric(forSong song: Song, lyrics: [SFLyric])
@@ -31,29 +23,39 @@ class iTunesLyricHelper {
 	var currentResults: [SFLyric] = []
 	var serverStatus: [ServerStatus] = []
 	
+	let searchQueue = DispatchQueue.init(label: "com.Putotyra.searchQueue")
+	
 	enum ServerStatus {
 		case waiting, success, failure
 	}
+	
 	func tryEveryServer(song: Song) {
 		currentSong = song
 		currentResults = [SFLyric](repeating: .none, count: currentServers.count)
 		serverStatus = [ServerStatus](repeating: .waiting, count: currentServers.count)
 		for index in 0..<currentServers.count {
-			currentServers[index].smartSearch(bySong: song, completion: { result in
-				switch result {
-				case .success(let lyric):
-					self.currentResults[index] = lyric
-					self.serverStatus[index] = .success
-				case .failure(let error):
-					self.serverStatus[index] = .failure
-				}
-				guard !self.serverStatus.contains(.waiting) else {
-					return
-				}
-				self.delegate?.didGetLyric(forSong: self.currentSong!, lyrics: self.currentResults.filter({ $0 != .none }))
-			})
+			searchQueue.async {
+				self.currentServers[index].smartSearch(bySong: song, completion: { result in
+					switch result {
+					case .success(let lyric):
+						self.currentResults[index] = lyric
+						self.serverStatus[index] = .success
+					case .failure(let error):
+						self.serverStatus[index] = .failure
+					}
+					guard !self.serverStatus.contains(.waiting) else {
+						return
+					}
+					self.delegate?.didGetLyric(forSong: self.currentSong!, lyrics: self.currentResults.filter({ $0 != .none }))
+				})
+			}
 		}
 	}
+	
+	func search(song: Song, using server: LyricSearchable, completion: @escaping (Result<SFLyric>) -> Void) {
+		server.smartSearch(bySong: song, completion: completion)
+	}
+	
 	/*
     func smartFetchLyric(with song: Song, completion: @escaping FetchLyricCompletion) {
 
@@ -126,7 +128,7 @@ class iTunesLyricHelper {
     /**
      根据歌曲名查询歌曲歌词列表
      */
-    func fetchLyricList(with name: String, completion: FetchLyricListCompletion) {
+    func fetchLyricList(with name: String, completion: Int) {
 //        NSString *key = [NSString stringWithFormat: @"fetchLyricWithSong-%@", songName];
 //        if ([_requestsDict objectForKey: key]) {
 //            return;
@@ -194,7 +196,7 @@ class iTunesLyricHelper {
     /**
      根据歌曲（含有歌词id）获取歌词
      */
-    func fetchLyric(withNeteaseID id: Int, completion: @escaping FetchLyricCompletion) {
+    func fetchLyric(withNeteaseID id: Int, completion: @escaping (Result<SFLyric>) -> Void) {
         print("Fetching Lyric")
         var request = URLRequest(url: URL(string: "\(FetchSongLyricURL)&id=\(id)")!)
         request.setValue("Cookie", forHTTPHeaderField: ENET_COOKIE)
@@ -213,6 +215,7 @@ class iTunesLyricHelper {
                 completion(.success(lrc))
 			} else {
 //				print(String.init(data: data, encoding: .utf8))
+				completion(.failure(nil))
 			}
         }.resume()
 //        NSString *key = [NSString stringWithFormat: @"_fetchLyricWithSong-%@-%ld", song.name, (long)song.duration];

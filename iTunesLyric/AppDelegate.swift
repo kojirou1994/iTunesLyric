@@ -59,24 +59,16 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 print("Song Not Nil")
                 lyricWindow.lyric = "\(song!.filename)"
 				lyric = nil
-//                iTunesLyricHelper.shared.smartFetchLyric(with: song!, completion: { result in
-//					switch result {
-//					case .success(let lyric):
-//						self.lyric = lyric
-//						if self.itunes.currentTrack?.lyrics == nil || self.itunes.currentTrack?.lyrics == "" {
-//							self.itunes.currentTrack?.setLyrics?(lyric.lyric)
-//						}
-//					case .failed:
-//						self.lyric = nil
-//						
-//					}
-//                })
 				iTunesLyricHelper.shared.tryEveryServer(song: song!)
             } else {
                 print("Song Nil")
                 lyricWindow.lyric = "没有检测到歌曲信息"
             }
         }
+//		let track = (itunes.tracks!()[0] as! iTunesTrack)
+//		print(track.album)
+//		print(track.name)
+		
 
     }
 
@@ -316,19 +308,6 @@ extension AppDelegate {
                     lyricWindow.lyric = "没有检测到歌曲信息"
                 }
 				lyric = nil
-//                iTunesLyricHelper.shared.smartFetchLyric(with: song!, completion: { result in
-////                    self.iTunesLyricFetchFinished(song: $0!)
-//					switch result {
-//					case .success(let lyric):
-//						self.lyric = lyric
-//						if self.itunes.currentTrack?.lyrics == nil || self.itunes.currentTrack?.lyrics == "" {
-//							self.itunes.currentTrack?.setLyrics?(lyric.lyric)
-//						}
-//					case .failed:
-//						self.lyric = nil
-//						
-//					}
-//                })
 				iTunesLyricHelper.shared.tryEveryServer(song: song!)
                 if !lyricWindow.isVisible {
                     lyricWindow.lyric = ""
@@ -346,18 +325,6 @@ extension AppDelegate {
         self.lyric = nil
         if song != nil {
             lyricWindow.lyric = "\(song!.filename)"
-//            iTunesLyricHelper.shared.smartFetchLyric(with: song!, completion: { result in
-//				switch result {
-//				case .success(let lyric):
-//					self.lyric = lyric
-//					if self.itunes.currentTrack?.lyrics == nil || self.itunes.currentTrack?.lyrics == "" {
-//						self.itunes.currentTrack?.setLyrics?(lyric.lyric)
-//					}
-//				case .failed:
-//					self.lyric = nil
-//					
-//				}
-//            })
 			iTunesLyricHelper.shared.tryEveryServer(song: song!)
         } else {
             lyricWindow.lyric = "没有检测到歌曲信息"
@@ -409,13 +376,6 @@ extension AppDelegate {
         }
         let lyric = self.lyric?.lyric(by: Int(playerPosition * 1000)) ?? ""
         lyricWindow.lyric = lyric
-
-//        print(playerPosition)
-//    NSString *time = [self secs2String: playerPosition];
-//    NSString *lyricStr = self.lyricDict[time];
-//    if (lyricStr.length) {
-//    [self.lyricWindow setLyric: lyricStr];
-//    }
     }
     
     //FIXME
