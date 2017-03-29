@@ -14,6 +14,18 @@ public enum SFLyric {
 	case lrc(SFLrc)
 	case none
 	
+	init(text: String) {
+		if text.characters.count == 0 {
+			self = .none
+		}
+		else if let lrc = SFLrc(lyric: text) {
+			self = .lrc(lrc)
+		}
+		else {
+			self = .plain(text.components(separatedBy: "\n"))
+		}
+	}
+	
 	func lyric(by mileSecond: Int) -> String {
 		switch self {
 		case .plain(_):
@@ -46,9 +58,9 @@ extension SFLyric: Equatable {
 		case (.none, .none):
 			return true
 		case (.lrc(let lrc1), .lrc(let lrc2)):
-			return true
-		case (.plain(_), .plain(_)):
-			return true
+			return lrc1.lyrics == lrc2.lyrics
+		case (.plain(let lrc1), .plain(let lrc2)):
+			return lrc1 == lrc2
 		default:
 			return false
 		}

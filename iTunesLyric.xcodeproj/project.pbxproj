@@ -23,7 +23,6 @@
 		E31C3FC11D702C0600A8FCD2 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31C3FC01D702C0600A8FCD2 /* Util.swift */; };
 		E31C3FC31D70808600A8FCD2 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31C3FC21D70808600A8FCD2 /* Constant.swift */; };
 		E31C3FC51D7091EC00A8FCD2 /* iTunesLyricHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31C3FC41D7091EC00A8FCD2 /* iTunesLyricHelper.swift */; };
-		E31C3FCF1D70C3B200A8FCD2 /* SFLyricParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31C3FCD1D70C3B200A8FCD2 /* SFLyricParser.swift */; };
 		E335A9F91D76965C00998893 /* RoundedNSView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E335A9F81D76965C00998893 /* RoundedNSView.swift */; };
 		E349DE8C1E7F6E5E00A6D31C /* LyricProvidable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E349DE8B1E7F6E5E00A6D31C /* LyricProvidable.swift */; };
 		E349DE8E1E7F6F8B00A6D31C /* KgetLyricServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E349DE8D1E7F6F8B00A6D31C /* KgetLyricServer.swift */; };
@@ -88,7 +87,6 @@
 		E31C3FC21D70808600A8FCD2 /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		E31C3FC41D7091EC00A8FCD2 /* iTunesLyricHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iTunesLyricHelper.swift; sourceTree = "<group>"; };
 		E31C3FC61D70B26B00A8FCD2 /* SFJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SFJSON.swift; path = iTunesLyric/Utility/SFJSON.swift; sourceTree = SOURCE_ROOT; };
-		E31C3FCD1D70C3B200A8FCD2 /* SFLyricParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SFLyricParser.swift; sourceTree = "<group>"; };
 		E323F3131DF4A77F00E17D54 /* iTunesLyric.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iTunesLyric.entitlements; sourceTree = "<group>"; };
 		E335A9F81D76965C00998893 /* RoundedNSView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedNSView.swift; sourceTree = "<group>"; };
 		E349DE8B1E7F6E5E00A6D31C /* LyricProvidable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LyricProvidable.swift; sourceTree = "<group>"; };
@@ -236,7 +234,6 @@
 		E31C3FCC1D70C39F00A8FCD2 /* SFLrcParser */ = {
 			isa = PBXGroup;
 			children = (
-				E31C3FCD1D70C3B200A8FCD2 /* SFLyricParser.swift */,
 				E3AF3D001DF55D56007D6ADD /* LyricRepresentable.swift */,
 				E372F28E1D7440400048C0AB /* SFLrcLyric.swift */,
 				E372F2901D74408E0048C0AB /* SFLrc.swift */,
@@ -591,7 +588,6 @@
 				E3AF3D031DF55EDE007D6ADD /* SFPlainLyric.swift in Sources */,
 				E349DE8E1E7F6F8B00A6D31C /* KgetLyricServer.swift in Sources */,
 				E372F28F1D7440400048C0AB /* SFLrcLyric.swift in Sources */,
-				E31C3FCF1D70C3B200A8FCD2 /* SFLyricParser.swift in Sources */,
 				E31C3F881D6F567F00A8FCD2 /* iTunesLyric.xcdatamodeld in Sources */,
 				E335A9F91D76965C00998893 /* RoundedNSView.swift in Sources */,
 				E349DE8C1E7F6E5E00A6D31C /* LyricProvidable.swift in Sources */,
@@ -747,7 +743,7 @@
 				DEVELOPMENT_TEAM = R8LT9M7XB2;
 				INFOPLIST_FILE = iTunesLyric/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Putotyra.iTunesLyric;
+				PRODUCT_BUNDLE_IDENTIFIER = com.putotyra.iTunesLyric;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "iTunesLyric/iTunesLyric-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -767,7 +763,7 @@
 				DEVELOPMENT_TEAM = R8LT9M7XB2;
 				INFOPLIST_FILE = iTunesLyric/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Putotyra.iTunesLyric;
+				PRODUCT_BUNDLE_IDENTIFIER = com.putotyra.iTunesLyric;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "iTunesLyric/iTunesLyric-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;

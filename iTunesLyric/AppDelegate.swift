@@ -28,7 +28,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
-        guard let it = SBApplication(bundleIdentifier: "com.apple.iTunes") as? iTunesApplication else {
+		
+		print(FileManager.default.temporaryDirectory)
+		
+        guard let it = SBApplication(bundleIdentifier: "com.apple.iTunes") else {
             showTerminateAlert()
             return
         }
@@ -484,6 +487,7 @@ extension AppDelegate {
 }
 
 extension AppDelegate: iTunesLyricHelperDelegate {
+	
 	func didGetLyric(forSong song: Song, lyrics: [SFLyric]) {
 		guard song === self.song else {
 			return
@@ -500,7 +504,7 @@ extension AppDelegate: iTunesLyricHelperDelegate {
 					self.itunes.currentTrack?.setLyrics?(lyric.lyric)
 					plainSetted = true
 				}
-			case .lrc(let lrc):
+			case .lrc(_):
 				self.lyric = lyric
 				lrcSetted = true
 				if !plainSetted {

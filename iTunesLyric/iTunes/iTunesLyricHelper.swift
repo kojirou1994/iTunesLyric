@@ -40,7 +40,7 @@ class iTunesLyricHelper {
 					case .success(let lyric):
 						self.currentResults[index] = lyric
 						self.serverStatus[index] = .success
-					case .failure(let error):
+					case .failure(_):
 						self.serverStatus[index] = .failure
 					}
 					guard !self.serverStatus.contains(.waiting) else {
@@ -56,143 +56,6 @@ class iTunesLyricHelper {
 		server.smartSearch(bySong: song, completion: completion)
 	}
 	
-	/*
-    func smartFetchLyric(with song: Song, completion: @escaping FetchLyricCompletion) {
-
-        var request = URLRequest(url: URL(string: FetchSongIDURL)!)
-        request.setValue(ENET_COOKIE, forHTTPHeaderField: "Cookie")
-        request.setValue(ENET_UA, forHTTPHeaderField: "User-Agent")
-        request.httpMethod = "POST"
-        request.httpBody = NeteaseSearchQuery(key: song.title).httpBody
-        
-//        requestsDict[key] = request
-        
-        print("Start Smart Fetch")
-//        dump(request)
-        URLSession.shared.dataTask(with: request) { (data, response, error) in
-            print("Got Smart Response")
-            guard error == nil, let data = data, let bodyString = String.init(data: data, encoding: .utf8) else {
-                return
-            }
-            guard let obj = SFJSON(jsonString: bodyString), let songs = obj["result"]["songs"].arrayObject else {
-                return
-            }
-            if let target = songs.first(where: { self.validateArtist(l: $0["artists"].arrayObject?.first?["name"].string, r: song.artist) }) {
-				let neteaseId = target["id"].intValue
-				print("Got Netease ID: \(neteaseId)")
-				self.fetchLyric(withNeteaseID: neteaseId, completion: completion)
-			} else {
-				let target = songs[0]
-				let neteaseId = target["id"].intValue
-				print("Got Netease ID: \(neteaseId)")
-				self.fetchLyric(withNeteaseID: neteaseId, completion: completion)
-			}
-			
-			
-            //FIXME
-//            song.lyricId = target.lyricId
-            
-//            NSString *timeStr = [NSString stringWithFormat:@"%.2ld:%.2ld",song.duration / 60, song.duration % 60];
-//            NSLog(@"%@-%@,找到正确的歌曲信息, 时间一致，id=%ld,duration=%@", song.name, song.artist,(long)song.lyricId, timeStr);
-
-        }.resume()
-        
-        
-        // 如果歌曲名字和歌手名都一致则认为是同一首歌
-//        for (Song *fetchSong in referenceSongs) {
-//        if ([fetchSong.name isEqualToString: song.name] && [fetchSong.artist isEqualToString: song.artist]) {
-//        song.lyricId = fetchSong.lyricId;
-//        NSString *timeStr = [NSString stringWithFormat:@"%.2ld:%.2ld",song.duration / 60, song.duration % 60];
-//        NSLog(@"%@-%@,找到正确的歌曲信息, 时间一致，id=%ld,duration=%@", song.name, song.artist,(long)song.lyricId, timeStr);
-//        break;
-//        }
-//        }
-//        
-//        if (song.lyricId) {
-//        [helper fetchLyricWithSong: song completeBlock:^(Song *song) {
-//        block(song);
-//        }];
-//        } else {
-//        block(nil);
-//        }
-//        [helper.requestsDict removeObjectForKey: key];
-//        }];
-//        
-//        [request setFailedBlock:^{
-//        [helper.requestsDict removeObjectForKey: key];
-//        }];
-//        
-//        [request startAsynchronous];
-    }
-    */
-    /**
-     根据歌曲名查询歌曲歌词列表
-     */
-    func fetchLyricList(with name: String, completion: Int) {
-//        NSString *key = [NSString stringWithFormat: @"fetchLyricWithSong-%@", songName];
-//        if ([_requestsDict objectForKey: key]) {
-//            return;
-//        }
-//        
-//        __weak ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL: [NSURL URLWithString: FETCH_SONG_ID_URL]];
-//        [request addPostValue: songName forKey: @"s"];
-//        [request addPostValue: @(1) forKey: @"type"];
-//        [request addPostValue: @"true" forKey: @"total"];
-//        [request addPostValue: @(100) forKey: @"limit"];
-//        [request addPostValue: @(0) forKey: @"offset"];
-//        [request addPostValue: @"<span class=\"s-fc2\">" forKey: @"hlpretag"];
-//        [request addPostValue: @"</span>" forKey: @"hlposttag"];
-//        [request addRequestHeader: @"Cookie" value: ENET_COOKIE];
-//        [request addRequestHeader: @"User-Agent" value: ENET_UA];
-//        request.timeOutSeconds = 5;
-//        
-//        [_requestsDict setValue: request forKey: key];
-//        
-//        __weak iTunesLyricHelper *helper = self;
-//        [request setCompletionBlock:^{
-//        
-//        id obj = request.responseString.objectFromJSONString;
-//        NSMutableArray *referenceSongs = [NSMutableArray array];
-//        NSArray *songsArray = obj[@"result"][@"songs"];
-//        for (NSDictionary *songDict in songsArray) {
-//        Song *song = [[Song alloc] init];
-//        song.name = songDict[@"name"];
-//        song.duration = (NSInteger)([songDict[@"duration"] integerValue] / 1000);
-//        song.album = songDict[@"album"][@"name"];
-//        song.lyricId = [songDict[@"id"] integerValue];
-//        song.score = [songDict[@"score"]integerValue];
-//        NSArray *artists = songDict[@"artists"];
-//        for (NSInteger i = 0; i < artists.count; i++) {
-//        NSString *artistName = artists[i][@"name"];
-//        if ([artistName length]) {
-//        song.artist = artistName;
-//        break;
-//        }
-//        }
-//        [referenceSongs addObject: song];
-//        }
-//        
-//        [referenceSongs sortUsingComparator:^NSComparisonResult(Song *song1, Song *song2) {
-//        return song1.score < song2.score;
-//        }];
-//        
-//        if (block) {
-//        block(referenceSongs);
-//        }
-//        [helper.requestsDict removeObjectForKey: key];
-//        
-//        }];
-//        
-//        [request setFailedBlock:^{
-//        if (block) {
-//        block(nil);
-//        }
-//        [helper.requestsDict removeObjectForKey: key];
-//        }];
-//        
-//        [request startAsynchronous];
-    }
-    
     /**
      根据歌曲（含有歌词id）获取歌词
      */
@@ -210,7 +73,7 @@ class iTunesLyricHelper {
             }
             if let lyric = json["lrc"]["lyric"].string {
                 print("Netease ID: \(id), 找到正确的歌词信息")
-                let lrc = SFLyricParser.parse(lyric: lyric)
+                let lrc = SFLyric(text: lyric)
 //                print(lyric)
                 completion(.success(lrc))
 			} else {
@@ -218,100 +81,45 @@ class iTunesLyricHelper {
 				completion(.failure(nil))
 			}
         }.resume()
-//        NSString *key = [NSString stringWithFormat: @"_fetchLyricWithSong-%@-%ld", song.name, (long)song.duration];
-//        [self.requestsDict setValue: request forKey: key];
-//        __weak iTunesLyricHelper *helper = self;
-//        request.completionBlock = ^(void){
-//            [helper.requestsDict removeObjectForKey: key];
-//            id obj = request.responseString.objectFromJSONString;
-//            if ([obj[@"code"] integerValue] == 200) {
-//                NSString *lyric = obj[@"lrc"][@"lyric"];
-//                if (lyric.length) {
-//                    song.lyrics = lyric;
-//                    [self saveSongLyricToLocal: song];
-//                    block(song);
-//                } else {
-//                    NSLog(@"%@-%@,没有找到正确的歌词信息", song.name, song.artist);
-//                    block(nil);
-//                }
-//            } else {
-//                NSLog(@"_fetchLyricWithSong err code %ld, reason: %@", [obj[@"code"] integerValue], obj);
-//                block(nil);
-//            }
-//            
-//            [helper.requestsDict removeObjectForKey: key];
-//            
-//        };
-//        [request setFailedBlock:^{
-//            NSLog(@"fetch lyric with id error");
-//            block(nil);
-//            [helper.requestsDict removeObjectForKey: key];
-//            }];
-//        
-//        [request startAsynchronous];
     }
-    
-    /**
-      保存歌词到本地
-     */
-    func saveSongLyricToLocal(song: Song) {
-        guard var lyricPath = lyricCachePath else {
-            return
-        }
-        let filename = "\(song.filename).li"
-        lyricPath = (lyricPath as NSString).appendingPathComponent(filename)
-        let dict = NSMutableDictionary()
-//        dict.setValue(song.neteaseId, forKey: "lyricId")
-//        dict.setValue(song.lyrics, forKey: "lyrics")
-        
-        dict.write(toFile: lyricPath, atomically: true)
+	
+	let lyricPath: URL
+	
+	init() {
+		if let path = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask).first {
+			lyricPath = path.appendingPathComponent("iTunesLyric", isDirectory: true).appendingPathComponent("lrc", isDirectory: true)
+			
+		} else {
+			lyricPath = FileManager.default.temporaryDirectory.appendingPathComponent("lrc", isDirectory: true)
+		}
+		try? FileManager.default.createDirectory(at: lyricPath, withIntermediateDirectories: true, attributes: nil)
+	}
+	
+	// MARK: - 保存歌词到本地
+	func save(lyric: SFLyric,for song: Song, force: Bool) throws {
+		let lrcPath = lyricPath.appendingPathComponent("\(song.filename).lrc")
+		let fm = FileManager.default
+		func save(lyric: SFLyric, to path: URL) throws {
+			try (lyric.lyric as NSString).write(to: path, atomically: true, encoding: String.Encoding.utf8.rawValue)
+		}
+		
+		if fm.fileExists(atPath: lrcPath.absoluteString) {
+			if force {
+				try save(lyric: lyric, to: lrcPath)
+			}
+		} else {
+			try save(lyric: lyric, to: lrcPath)
+		}
     }
-    
-    func readSongLyricFromLocal(song: Song) -> Bool {
-        return false
-        guard var lyricPath = lyricCachePath else {
-            return false
-        }
-        let filename = "\(song.filename).li"
-        lyricPath = (lyricPath as NSString).appendingPathComponent(filename)
-        if let dic = NSDictionary(contentsOfFile: lyricPath) {
-//            song.neteaseId = dic.object(forKey: "lyricId") as! Int
-//            song.lyrics = dic["lyrics"] as? String
-            return true
-        }
-        return false
-    }
-    
-    var homePath: String? {
-        let userInfoPath = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.applicationSupportDirectory, FileManager.SearchPathDomainMask.userDomainMask, true).last!.appending("/iTunesLyric/")
-        if FileManager.default.fileExists(atPath: userInfoPath) {
-            return userInfoPath
-        }else {
-            do {
-                try FileManager.default.createDirectory(atPath: userInfoPath, withIntermediateDirectories: true, attributes: nil)
-                return userInfoPath
-            } catch let error as NSError {
-                NSLog("home path create error; \(error)")
-                return nil
-            }
-        }
-    }
-
-    var lyricCachePath: String? {
-        if let userHomePath = homePath {
-            let userCachePath = (userHomePath as NSString).appendingPathComponent("lyrics")
-            if !FileManager.default.fileExists(atPath: userCachePath) {
-                do {
-                    try FileManager.default.createDirectory(atPath: userCachePath, withIntermediateDirectories: true, attributes: nil)
-                } catch let error as NSError {
-                    NSLog("home path create error; \(error)")
-                    return nil
-                }
-            }
-            return userCachePath
-        }
-        return nil
-    }
+	
+	func fetchLocalLyric(for song: Song, completion: (Result<SFLyric>) -> Void) {
+		let lrcPath = lyricPath.appendingPathComponent("\(song.filename).lrc")
+		guard let content = try? NSString(contentsOf: lrcPath, encoding: String.Encoding.utf8.rawValue) else {
+			completion(.failure(nil))
+			return
+		}
+		completion(.success(SFLyric(text: content as String)))
+	}
     
     func validateArtist(l: String?, r: String) -> Bool {
         guard let l = l else {

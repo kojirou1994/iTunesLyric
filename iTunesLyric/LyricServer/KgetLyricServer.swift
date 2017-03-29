@@ -97,7 +97,7 @@ struct KgetLyric: LyricProvidable, LyricSearchable {
 		}
 		
 		if let lyric = html.css("div#lyric-trunk").first?.content?.components(separatedBy: "\n") {
-			print(lyric.joined(separator: "\n"))
+//			print(lyric.joined(separator: "\n"))
 			completion(.success(.plain(filteredNilString(lyric))))
 		} else {
 			throw LyricSearchError.lyricParseError

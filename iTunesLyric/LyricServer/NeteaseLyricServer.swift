@@ -151,7 +151,7 @@ struct NeteaseLyricServer: LyricProvidable, LyricSearchable {
 			}
 			if let lyric = json["lrc"]["lyric"].string {
 				print("\(result.song.filename), 找到正确的歌词信息")
-				let lrc = SFLyricParser.parse(lyric: lyric)
+				let lrc = SFLyric(text: lyric)
 				completion(.success(lrc))
 			} else {
 				completion(.failure(nil))
@@ -162,6 +162,5 @@ struct NeteaseLyricServer: LyricProvidable, LyricSearchable {
 	var description: String {
 		return "Netease"
 	}
-	
 
 }
